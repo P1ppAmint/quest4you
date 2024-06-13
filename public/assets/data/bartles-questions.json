@@ -1,0 +1,275 @@
+[
+  {
+    "question": "Are you more comfortable, as a player on a MUD:",
+    "outcome1": "+S",
+    "answer1": "Talking with friends in a tavern?",
+    "outcome2": "+A",
+    "answer2": "Out hunting orcs by yourself for experience?"
+  },
+  {
+    "question": "Which is more enjoyable to you?",
+    "outcome1": "+A",
+    "answer1": "Killing a big monster",
+    "outcome2": "+S",
+    "answer2": "Bragging about it to your friends?"
+  },
+  {
+    "question": "Which do you enjoy more in MUD quests:",
+    "outcome1": "+S",
+    "answer1": "Getting involved in the storyline",
+    "outcome2": "+A",
+    "answer2": "Getting the rewards at the end?"
+  },
+  {
+    "question": "Which would you rather be noticed for on a MUD?:",
+    "outcome1": "+A",
+    "answer1": "Your equipment",
+    "outcome2": "+S",
+    "answer2": "Your personality"
+  },
+  {
+    "question": "Would you rather be:",
+    "outcome1": "+S",
+    "answer1": "Popular",
+    "outcome2": "+A",
+    "answer2": "Wealthy"
+  },
+  {
+    "question": "Which do you enjoy more on a MUD?:",
+    "outcome1": "+S",
+    "answer1": "Getting the latest gossip",
+    "outcome2": "+A",
+    "answer2": "Getting a new item"
+  },
+  {
+    "question": "Which would you rather have, as a player on a MUD?:",
+    "outcome1": "+S",
+    "answer1": "A private channel, over which you and your friends can communicate",
+    "outcome2": "+A",
+    "answer2": "Your own house, worth millions of gold coins"
+  },
+  {
+    "question": "Which would you enjoy more as a MUD player?",
+    "outcome1": "+S",
+    "answer1": "Running your own tavern?",
+    "outcome2": "+E",
+    "answer2": "Making your own maps of the world, then selling them?"
+  },
+  {
+    "question": "What's more important in a MUD to you?",
+    "outcome1": "+S",
+    "answer1": "The number of people",
+    "outcome2": "+E",
+    "answer2": "The number of areas to explore"
+  },
+  {
+    "question": "What's more important to you:",
+    "outcome1": "+S",
+    "answer1": "The quality of roleplaying in a mud",
+    "outcome2": "+E",
+    "answer2": "The uniqueness of the features, and game mechanic"
+  },
+  {
+    "question": "You are being chased by a monster on a MUD. Do you:",
+    "outcome1": "+S",
+    "answer1": "Ask a friend for help in killing it",
+    "outcome2": "+E",
+    "answer2": "Hide somewhere you know the monster won't follow"
+  },
+  {
+    "question": "You're a player on a mud, and you want to fight a really tough dragon. How would you approach this problem?",
+    "outcome1": "+S",
+    "answer1": "Get a big group of players to kill it.",
+    "outcome2": "+E",
+    "answer2": "Try a variety of weapons and magic against it, until you find its weakness."
+  },
+  {
+    "question": "You're a player on a mud, and about to go into an unknown dungeon. You have your choice of one more person for your party. Do you bring:",
+    "outcome1": "+S",
+    "answer1": "A bard, who's a good friend of yours and who's great for entertaining you and your friends",
+    "outcome2": "+E",
+    "answer2": "A wizard, to identify the items that you find there"
+  },
+  {
+    "question": "Is it better to be:",
+    "outcome1": "+K",
+    "answer1": "Feared",
+    "outcome2": "+S",
+    "answer2": "Loved"
+  },
+  {
+    "question": "Someone has PK'ed you. Do you want to:",
+    "outcome1": "+S",
+    "answer1": "Find out why, and try to convince them not to do it again",
+    "outcome2": "+K",
+    "answer2": "Plot your revenge"
+  },
+  {
+    "question": "Which is more exciting?",
+    "outcome1": "+S",
+    "answer1": "A well-roleplayed scenario",
+    "outcome2": "+K",
+    "answer2": "A deadly battle"
+  },
+  {
+    "question": "Which would you enjoy more?",
+    "outcome1": "+K",
+    "answer1": "Winning a duel with another player",
+    "outcome2": "+S",
+    "answer2": "Getting accepted by a clan"
+  },
+  {
+    "question": "Would you rather",
+    "outcome1": "+K",
+    "answer1": "Vanquish your enemies",
+    "outcome2": "+S",
+    "answer2": "Convince your enemies to work for you, not against you"
+  },
+  {
+    "question": "What's worse:",
+    "outcome1": "+K",
+    "answer1": "To be without power",
+    "outcome2": "+S",
+    "answer2": "To be without friends"
+  },
+  {
+    "question": "Would you rather:",
+    "outcome1": "+S",
+    "answer1": "Hear what someone has to say",
+    "outcome2": "+K",
+    "answer2": "Show them the sharp blade of your axe"
+  },
+  {
+    "question": "On a MUD, a new area opens up. Which do you look forward to more?",
+    "outcome1": "+E",
+    "answer1": "Exploring the new area, and finding out its history",
+    "outcome2": "+A",
+    "answer2": "Being the first to get the new equipment from the area"
+  },
+  {
+    "question": "On a MUD, would you rather be known as:",
+    "outcome1": "+E",
+    "answer1": "Someone who can run from any two points in the world, and really knows their way around.",
+    "outcome2": "+A",
+    "answer2": "The person with the best, most unique equipment in the game"
+  },
+  {
+    "question": "Would you rather:",
+    "outcome1": "+A",
+    "answer1": "Become a hero faster than your friends",
+    "outcome2": "+E",
+    "answer2": "Know more secrets than your friends?"
+  },
+  {
+    "question": "Would you rather:",
+    "outcome1": "+E",
+    "answer1": "Know where to find things",
+    "outcome2": "+A",
+    "answer2": "Know how to get things?"
+  },
+  {
+    "question": "Which would you rather do:",
+    "outcome1": "+E",
+    "answer1": "Solve a riddle no one else has gotten",
+    "outcome2": "+A",
+    "answer2": "Getting to a certain experience level faster than anyone else"
+  },
+  {
+    "question": "Do you tend to:",
+    "outcome1": "+E",
+    "answer1": "Know things no one else does",
+    "outcome2": "+A",
+    "answer2": "Have items no one else does"
+  },
+  {
+    "question": "On a MUD, would rather join a clan of:",
+    "outcome1": "+E",
+    "answer1": "Scholars",
+    "outcome2": "+K",
+    "answer2": "Assassins"
+  },
+  {
+    "question": "Would you rather win:",
+    "outcome1": "+E",
+    "answer1": "A trivia contest",
+    "outcome2": "+K",
+    "answer2": "An arena battle"
+  },
+  {
+    "question": "If you're alone in an area, do you think:",
+    "outcome1": "+E",
+    "answer1": "It's safe to explore",
+    "outcome2": "+K",
+    "answer2": "You'll have to look elsewhere for prey"
+  },
+  {
+    "question": "On a MUD, would rather be known for",
+    "outcome1": "+E",
+    "answer1": "Knowledge",
+    "outcome2": "+K",
+    "answer2": "Power"
+  },
+  {
+    "question": "Would you rather:",
+    "outcome1": "+K",
+    "answer1": "Defeat an enemy",
+    "outcome2": "+E",
+    "answer2": "Explore a new area"
+  },
+  {
+    "question": "You learn that another player is planning your demise. Do you:",
+    "outcome1": "+E",
+    "answer1": "Go to an area your opponent is unfamiliar with and prepare there",
+    "outcome2": "+K",
+    "answer2": "Attack him before he attacks you"
+  },
+  {
+    "question": "You meet a new player. Do you think of him as:",
+    "outcome1": "+E",
+    "answer1": "Someone who can appreciate your knowledge of the game",
+    "outcome2": "+K",
+    "answer2": "As potential prey"
+  },
+  {
+    "question": "On a mud, would you rather:",
+    "outcome1": "+A",
+    "answer1": "Have a sword twice as powerful as any other in the game",
+    "outcome2": "+K",
+    "answer2": "Be the most feared person in the game"
+  },
+  {
+    "question": "On a mud, would you be more prone to brag about:",
+    "outcome1": "+K",
+    "answer1": "How may other players you've killed",
+    "outcome2": "+A",
+    "answer2": "Your equipment"
+  },
+  {
+    "question": "Would you rather have:",
+    "outcome1": "+K",
+    "answer1": "A spell to damage other players",
+    "outcome2": "+A",
+    "answer2": "A spell that increases the rate at which you gain experience points?"
+  },
+  {
+    "question": "Would you rather have:",
+    "outcome1": "+A",
+    "answer1": "Two levels of experience",
+    "outcome2": "+K",
+    "answer2": "An amulet that increases the damage you do against other players by 10%."
+  },
+  {
+    "question": "Would you rather receive as a quest reward:",
+    "outcome1": "+A",
+    "answer1": "Experience points",
+    "outcome2": "+K",
+    "answer2": "A wand with 3 charges of a spell that lets you control other players, against their will. (charm person)"
+  },
+  {
+    "question": "When playing a video game, is it more fun to:",
+    "outcome1": "+A",
+    "answer1": "Have the highest score on the list?",
+    "outcome2": "+K",
+    "answer2": "Beat your best friend one-on-one?"
+  }
+]

@@ -1,0 +1,40 @@
+<section>
+  <h1>{{question}}</h1>
+  <section class="options">
+    <button (click)="onAnswer(option1[1])">{{option1[0]}}</button>
+    <button (click)="onAnswer(option2[1])">{{option2[0]}}</button>
+  </section>
+</section>
+
+
+
+
+<div class = "progressbar">
+  @if (currentQuestionIndex != 0) {
+    <button class="progressbar-button" (click)="previousQuestion()">
+      <img ngSrc="assets/images/icons/back-icon.svg" alt="previous"/>
+    </button>
+  }
+  <div class="progressbar-display">
+    @for (qst of questions; track qst; let i = $index) {
+      @if (i < currentQuestionIndex){
+        <button class=" question-indicator previous" (click)="changeQuestion(i)">p</button>
+      } @else if (i == currentQuestionIndex) {
+        <button class="question-indicator current" disabled="true">c</button>
+      } @else {
+        <button class="question-indicator" (click)="changeQuestion(i)">n</button>
+      }
+
+    }
+  </div>
+  @if (currentQuestionIndex != quizLength - 1) {
+    <button class="progressbar-button" (click)="nextQuestion()"><img ngSrc="assets/images/icons/back-icon.svg" alt="next"/></button>
+  }
+</div>
+
+<section>
+  <p>A : {{result['+A']}}</p>
+  <p>E : {{result['+E']}}</p>
+  <p>S : {{result['+S']}}</p>
+  <p>K : {{result['+K']}}</p>
+</section>
