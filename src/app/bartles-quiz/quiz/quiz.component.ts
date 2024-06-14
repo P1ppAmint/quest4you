@@ -12,8 +12,13 @@ import {NgOptimizedImage} from "@angular/common";
   styleUrl: './quiz.component.css'
 })
 export class QuizComponent{
-  questions : any = questions
+  progressbarIndicatorWindow : number = 4;
+
   currentQuestionIndex : number = 0;
+
+  //TODO replace later
+  questions : any = questions
+
   question : string = '';
   option1 = ['', '']
   option2 = ['', '']
@@ -26,7 +31,7 @@ export class QuizComponent{
   }
 
   public onAnswer(answer : string) : void  {
-    //calculate result
+    //TODO externalize result calculation
     this.result[answer] += 1;
     //add index overflow behavior
 

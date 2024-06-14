@@ -1,25 +1,40 @@
-section {
+.quiz-module {
+ justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100pt;
+}
+
+.question-module {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
   justify-content: center;
   align-items: center;
 }
 
 h1 {
-  width: 600px;
+  width: 800pt;
+  height: 160pt;
   text-align: center;
+  font-size: 48pt;
 }
 
 .options {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  gap: 60pt;
 }
 
 .options button{
   background-color: #FFB951;
   border: none;
-  width: 500px;
-  height: 100px;
-  border-radius: 8px;
+  width: 500pt;
+  height: 100pt;
+  border-radius: 8pt;
+  font-size: 24pt;
 }
 
 .progressbar {
@@ -27,15 +42,52 @@ h1 {
   height: 100%;
   justify-content: center;
   align-items: center;
+  gap: 64pt;
 }
 
 .progressbar-button {
-  width: 46px;
-  height: 60px;
+  width: 46pt;
+  height: 60pt;
+  border: none;
+  background: none;
 }
 
 .progressbar-display {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 12pt;
 }
+
+.question-indicator {
+  border: none;
+}
+
+.question-indicator.previous {
+  background: #4664C9;
+  width: 16pt;
+  height: 16pt;
+  border-radius: 20pt;
+}
+
+.question-indicator.current {
+  background: #5197FF;
+  width: 42pt;
+  height: 42pt;
+  border-radius: 20pt;
+}
+
+.question-indicator.next {
+  background: #9ACBFF;
+  width: 16pt;
+  height: 16pt;
+  border-radius: 20pt;
+}
+
+
+.result-view {
+  display: flex;
+  flex-direction: row;
+  gap: 12pt;
+}
+
