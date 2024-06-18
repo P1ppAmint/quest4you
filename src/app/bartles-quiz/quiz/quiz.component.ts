@@ -16,7 +16,7 @@ export class QuizComponent{
 
   currentQuestionIndex : number = 0;
 
-  //TODO replace later
+  //TODO replace later with quiz-service
   questions : any = questions
 
   question : string = '';
