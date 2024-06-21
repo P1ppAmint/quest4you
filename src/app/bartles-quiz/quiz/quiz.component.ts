@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
-import questions from '../../../../public/assets/data/bartles-questions.json';
-import {NgOptimizedImage} from "@angular/common";
+import { Component, OnInit } from '@angular/core';
+import { NgOptimizedImage } from "@angular/common";
+
+import {QuizQuestionService} from "../quiz-question.service";
+
+import {QuizQuestion} from "../quiz-question";
 
 @Component({
   selector: 'app-quiz',
@@ -11,33 +14,46 @@ import {NgOptimizedImage} from "@angular/common";
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css'
 })
-export class QuizComponent{
+export class QuizComponent implements OnInit{
   progressbarIndicatorWindow : number = 4;
 
+  quizQuestions : QuizQuestion[] = [];
+
+  currentQuizQuestion : QuizQuestion = new QuizQuestion("","", "", "", "", "");
+
   currentQuestionIndex : number = 0;
+  quizLength : number = 0;
 
-  //TODO replace later with quiz-service
-  questions : any = questions
+  //just for debugging remove later
+  result : {[resultType : string] : number} = {'+A': 0, '+E' : 0, '+S' : 0, '+K' : 0 };
 
-  question : string = '';
-  option1 = ['', '']
-  option2 = ['', '']
-  result : {[resultType : string] : number} = {'+A': 0, '+E' : 0, '+S' : 0, '+K' : 0 }
-
-  quizLength : number = questions.length;
+  constructor(private quizQuestionService: QuizQuestionService) {}
 
   ngOnInit(): void {
-    this.loadData(0)
+    this.getData()
   }
+
+  getData() : void {
+    this.quizQuestions = this.quizQuestionService.quizQuestions;
+    this.quizLength = this.quizQuestions.length;
+    this.loadQuestionData(this.currentQuestionIndex)
+  }
+
 
   public onAnswer(answer : string) : void  {
     //TODO externalize result calculation
     this.result[answer] += 1;
-    //add index overflow behavior
+    this.currentQuizQuestion.answer = answer;
+    this.currentQuizQuestion.isAnswered = true;
 
     this.currentQuestionIndex++;
-    //laod next questions
-    this.changeQuestion(this.currentQuestionIndex)
+    if (this.checkQuizCompletion()) {
+      this.finishQuiz()
+    } else {
+      //laod next questions
+      this.changeQuestion(this.currentQuestionIndex)
+    }
+
   }
 
   public previousQuestion() : void {
@@ -52,17 +68,23 @@ export class QuizComponent{
 
   public changeQuestion(index : number) : void  {
     this.currentQuestionIndex = index;
-    this.loadData(this.currentQuestionIndex);
+    this.loadQuestionData(this.currentQuestionIndex);
   }
 
-  private loadData(index : number) : void{
-    this.question = questions[index].question;
-    this.option1 = [questions[index].answer1, questions[index].outcome1];
-    this.option2 = [questions[index].answer2, questions[index].outcome2];
+  private loadQuestionData(index : number) : void{
+    this.currentQuizQuestion = this.quizQuestions[index];
   }
 
   public finishQuiz() : void {
 
+  }
+
+  private checkQuizCompletion() : boolean {
+    let allAnswered : boolean = true;
+    this.quizQuestions.forEach((quizQuestion : QuizQuestion) => {
+      if (!quizQuestion.isAnswered) allAnswered = false;
+    })
+    return allAnswered
   }
 
 }

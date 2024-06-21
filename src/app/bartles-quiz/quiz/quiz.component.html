@@ -1,44 +1,45 @@
-<section class="quiz-module">
-  <section class="question-module">
-    <h1>{{question}}</h1>
-    <section class="options">
-      <button (click)="onAnswer(option1[1])">{{option1[0]}}</button>
-      <button (click)="onAnswer(option2[1])">{{option2[0]}}</button>
+@defer {
+  <section class="quiz-module">
+    <section class="question-module">
+      <h1>{{currentQuizQuestion.question}}</h1>
+      <section class="options">
+        <button (click)="onAnswer(currentQuizQuestion.option1.value)">{{currentQuizQuestion.option1.claim}}</button>
+        <button (click)="onAnswer(currentQuizQuestion.option2.value)">{{currentQuizQuestion.option2.claim}}</button>
+      </section>
+    </section>
+
+
+    <div class = "progressbar">
+      @if (currentQuestionIndex != 0) {
+        <button class="progressbar-button" (click)="previousQuestion()">
+          <img ngSrc="assets/images/icons/previous-icon.svg" width="40" height="60" alt="previous"/>
+        </button>
+      }
+      <div class="progressbar-display">
+        @for (quizQuestion of quizQuestions; track quizQuestion; let i = $index ) {
+          @if (i == currentQuestionIndex){
+            <button class="question-indicator current" disabled = true></button>
+          } @else {
+            @if (quizQuestion.isAnswered) {
+              <button class="question-indicator answered" (click)="changeQuestion(i)"></button>
+            } @else {
+              <button class="question-indicator unanswered" (click)="changeQuestion(i)"></button>
+            }
+          }
+        }
+      </div>
+        <button class="progressbar-button" (click)="nextQuestion()">
+          <img ngSrc="assets/images/icons/next-icon.svg" width="40" height="60" alt="next"/>
+        </button>
+    </div>
+
+    <section class="result-view">
+      <p>A : {{result['+A']}}</p>
+      <p>E : {{result['+E']}}</p>
+      <p>S : {{result['+S']}}</p>
+      <p>K : {{result['+K']}}</p>
     </section>
   </section>
-
-
-
-
-  <div class = "progressbar">
-    @if (currentQuestionIndex != 0) {
-      <button class="progressbar-button" (click)="previousQuestion()">
-        <img ngSrc="assets/images/icons/previous-icon.svg" width="40" height="60" alt="previous"/>
-      </button>
-    }
-    <div class="progressbar-display">
-      @for (qst of questions; track qst; let i = $index) {
-        @if (i < currentQuestionIndex){
-          <button class="question-indicator previous" (click)="changeQuestion(i)"></button>
-        } @else if (i == currentQuestionIndex) {
-          <button class="question-indicator current" disabled="true"></button>
-        } @else {
-          <button class="question-indicator next" (click)="changeQuestion(i)"></button>
-        }
-
-      }
-    </div>
-    @if (currentQuestionIndex != quizLength - 1) {
-      <button class="progressbar-button" (click)="nextQuestion()">
-        <img ngSrc="assets/images/icons/next-icon.svg" width="40" height="60" alt="next"/>
-      </button>
-    }
-  </div>
-
-  <section class="result-view">
-    <p>A : {{result['+A']}}</p>
-    <p>E : {{result['+E']}}</p>
-    <p>S : {{result['+S']}}</p>
-    <p>K : {{result['+K']}}</p>
-  </section>
-</section>
+} @loading (minimum 0.001s) {
+  <p>Waiting for data</p>
+}

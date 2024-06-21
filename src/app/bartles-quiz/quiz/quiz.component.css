@@ -66,7 +66,7 @@ h1 {
   border: none;
 }
 
-.question-indicator.previous {
+.question-indicator.answered {
   background: #4664C9;
   width: 16pt;
   height: 16pt;
@@ -80,7 +80,7 @@ h1 {
   border-radius: 20pt;
 }
 
-.question-indicator.next {
+.question-indicator.unanswered {
   background: #9ACBFF;
   width: 16pt;
   height: 16pt;

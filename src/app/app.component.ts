@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { BackendCommunicationService} from "./backend/communication-management/backend-communication.service";
-
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { QuizComponent } from "./bartles-quiz/quiz/quiz.component";
 
@@ -11,22 +9,6 @@ import { QuizComponent } from "./bartles-quiz/quiz/quiz.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'quest4you';
-
-  newdata:any;
-
-  constructor(private backendCommunicationService : BackendCommunicationService) {
-
-  }
-
-  ngOnInit() {
-    this.getData();
-  }
-
-  getData(){
-    this.backendCommunicationService.getData().subscribe(res => {
-      this.newdata=res;
-    })
-  }
 }
