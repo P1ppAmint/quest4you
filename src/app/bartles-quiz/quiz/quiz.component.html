@@ -28,9 +28,11 @@
           }
         }
       </div>
-        <button class="progressbar-button" (click)="nextQuestion()">
-          <img ngSrc="assets/images/icons/next-icon.svg" width="40" height="60" alt="next"/>
-        </button>
+      @if (currentQuestionIndex < quizLength) {
+      <button class="progressbar-button" (click)="nextQuestion()">
+        <img ngSrc="assets/images/icons/next-icon.svg" width="40" height="60" alt="next"/>
+      </button>
+      }
     </div>
 
     <section class="result-view">
