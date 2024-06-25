@@ -4,10 +4,10 @@
       <h1>{{currentQuizQuestion.question}}</h1>
       <section class="options">
         <button (click)="onAnswer(currentQuizQuestion.option1.value)">{{currentQuizQuestion.option1.claim}}</button>
+<!--        <button (click)="updateArray()">Big button</button>-->
         <button (click)="onAnswer(currentQuizQuestion.option2.value)">{{currentQuizQuestion.option2.claim}}</button>
       </section>
     </section>
-
 
     <div class = "progressbar">
       @if (currentQuestionIndex != 0) {
