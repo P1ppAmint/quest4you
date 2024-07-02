@@ -23,7 +23,7 @@ export class QuizComponent implements OnInit{
   currentQuestionIndex : number = 0;
   quizLength : number = 0;
 
-  //just for debugging remove later
+  //just for debugging TODO remove later
   result : {[resultType : string] : number} = {'+A': 0, '+E' : 0, '+S' : 0, '+K' : 0 };
 
   constructor(private quizQuestionService: QuizQuestionService) {}

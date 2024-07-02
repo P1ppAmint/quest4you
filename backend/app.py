@@ -5,14 +5,15 @@ import requests
 import gpt_integration
 
 app = Flask(__name__)
-CORS(app)  # CRUCIAL to ensure POST the request is passed through correctly (sth sth prefetch, can look it up if you need)
 
-global my_variable
+# CRUCIAL to ensure POST the request is passed through correctly (sth sth prefetch, can look it up if you need)
+CORS(app)
+
 
 @app.route('/api/data')
 def get_data():
     data = {
-      'title': 'Quest4Me',
+      'title': 'Quest4You',
       'message': 'Test!!!!'
     }
 
@@ -47,10 +48,8 @@ def get_final_answers():
     data = request.json
     print('Final answers received in app.py:')
     print(data)
-    print()
-    gpt_integration.questions_data = data
-    gpt_integration.printData()
     return jsonify(data)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

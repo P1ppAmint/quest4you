@@ -10,11 +10,10 @@
     </section>
 
     <div class = "progressbar">
-      @if (currentQuestionIndex != 0) {
-        <button class="progressbar-button" (click)="previousQuestion()">
-          <img ngSrc="assets/images/icons/previous-icon.svg" width="40" height="60" alt="previous"/>
-        </button>
-      }
+      <button class="progressbar-button" (click)="previousQuestion()" [hidden] ="currentQuestionIndex == 0">
+        <img ngSrc="assets/images/icons/previous-icon.svg" width="40" height="60" alt="previous"/>
+      </button>
+
       <div class="progressbar-display">
         @for (quizQuestion of quizQuestions; track quizQuestion; let i = $index ) {
           @if (i == currentQuestionIndex){
@@ -28,11 +27,9 @@
           }
         }
       </div>
-      @if (currentQuestionIndex < quizLength) {
-      <button class="progressbar-button" (click)="nextQuestion()">
+      <button class="progressbar-button" (click)="nextQuestion()" [hidden]="currentQuestionIndex >= quizLength - 1">
         <img ngSrc="assets/images/icons/next-icon.svg" width="40" height="60" alt="next"/>
       </button>
-      }
     </div>
 
     <section class="result-view">
