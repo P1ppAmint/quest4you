@@ -40,16 +40,21 @@ export class QuizQuestionService {
 
   }
 
-  public saveQuestionData(finalAnswers : any) {
+  public saveQuestionData() {
     // reaches this part of the code!
     // this.loadQuestionData()
     // Stuff needed for a correct post request:
     // - correct header (see above)
     // -> from that create correct headerOPTIONS to make it easier to pass them into the post request
     // - stringify the dictionary to ensure the format is correctly taken by the request
-    // CRUCIAL: in app.py enable CORS (Cross-Origin Ressource Sharing) by putting CORS(app) below app definition in first lines
-    const json_data = JSON.stringify("{'0': 'YES','1': ''}")
-    this.http.post('http://127.0.0.1:5000/api/users/test/final_answers', json_data, this.requestOptions).subscribe(res => this.really_finalAnswers = res)
+    // CRUCIAL: in app.py enable CORS (Cross-Origin Resource Sharing) by putting CORS(app) below app definition in first lines
+    for (let index in this.quizQuestions) {
+      this.answersGiven[index] = this.quizQuestions[index]['answer'];
+    }
+    console.log(this.answersGiven)
+
+    const json_data = JSON.stringify(this.answersGiven)
+    this.http.post('http://127.0.0.1:5000/api/users/test/final_answers', json_data, this.requestOptions)//.subscribe(res => this.really_finalAnswers = res)
 
   }
 }

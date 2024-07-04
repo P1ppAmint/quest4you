@@ -59,7 +59,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12pt;
+  gap: 8pt;
 }
 
 .question-indicator {

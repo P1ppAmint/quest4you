@@ -43,12 +43,11 @@ def get_user_answers():
 
 
 @app.route('/api/users/test/final_answers', methods=['GET', 'POST'])
-def get_final_answers():
-    print('WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')
+def save_final_answers():
     data = request.json
     print('Final answers received in app.py:')
     print(data)
-    return jsonify(data)
+    #return jsonify(data)
 
 
 if __name__ == '__main__':

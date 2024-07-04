@@ -11,7 +11,7 @@
 
     <div class = "progressbar">
       <button class="progressbar-button" (click)="previousQuestion()" [hidden] ="currentQuestionIndex == 0">
-        <img ngSrc="assets/images/icons/previous-icon.svg" width="40" height="60" alt="previous"/>
+        <img ngSrc="assets/images/icons/previous-icon.svg" width="40" height="60" alt="previous Question"/>
       </button>
 
       <div class="progressbar-display">
@@ -28,7 +28,7 @@
         }
       </div>
       <button class="progressbar-button" (click)="nextQuestion()" [hidden]="currentQuestionIndex >= quizLength - 1">
-        <img ngSrc="assets/images/icons/next-icon.svg" width="40" height="60" alt="next"/>
+        <img ngSrc="assets/images/icons/next-icon.svg" width="40" height="60" alt="next Question"/>
       </button>
     </div>
 
