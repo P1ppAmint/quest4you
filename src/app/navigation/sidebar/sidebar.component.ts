@@ -12,18 +12,19 @@ import {NgOptimizedImage} from "@angular/common";
   ],
   template: `
     <section class="sidebar-wrapper">
-      <img ngSrc="assets/images/logo.png" width="180" height="180"/>
+      <img ngSrc="assets/images/logo.png" width="180" height="180" alt="Quest4You Logo" priority/>
       <ul class="sidebar-links">
-        <li><a [routerLink]="" [routerLinkActive]="['is-active']">HOME</a></li>
+        <li><a [routerLink]="['/home']" [routerLinkActive]="['is-active']">HOME</a></li>
         <li><a [routerLink]="['/quests']" [routerLinkActive]="['is-active']">QUESTS</a></li>
-        <li><a [routerLink]="['/playertype']" [routerLinkActive]="['is-active']">PLAYERTYPE</a></li>
+        <li><a [routerLink]="['/player-type']" [routerLinkActive]="['is-active']">PLAYER TYPE</a></li>
         <li><a [routerLink]="['/library']" [routerLinkActive]="['is-active']">LIBRARY</a></li>
-        <li><a>SOCIAL</a></li>
-        <li><a>ACCOUNT</a></li>
+        <li><a [routerLink]="['/social']" [routerLinkActive]="['is-active']">SOCIAL</a></li>
+        <li><a [routerLink]="['/account']" [routerLinkActive]="['is-active']">ACCOUNT</a></li>
       </ul>
     </section>
   `,
   styles: `
+
   .sidebar-links{
     display: flex;
     flex-direction: column;
@@ -32,21 +33,25 @@ import {NgOptimizedImage} from "@angular/common";
     list-style-type: none;
   }
 
-
-
   .sidebar-links li a{
     color: white;
+    text-decoration: none;
 
-  }
-  .sidebar-links li a.is-active {
-    color: #FFB951;
+    &:hover {
+      color: #FFE1B4;
+    }
+
+    &.is-active{
+      color: #FFB951;
+    }
+
   }
 
   .sidebar-wrapper{
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 256pt;
+    width: 100%;
     background: black;
     gap: 10pt;
     padding: 20pt 0;

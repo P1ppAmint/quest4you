@@ -1,13 +1,21 @@
 import { Routes } from '@angular/router';
-import {LoadingScreenComponent} from "./loading-screen/loading-screen.component";
 import {LibraryComponent} from "./library/library/library.component";
-import {PlayertypeComponent} from "./playertype/playertype/playertype.component";
+import {PlayerTypeComponent} from "./player-type/player-type/player-type.component";
 import {HomeComponent} from "./home/home.component";
-import {QuizComponent} from "./playertype/quiz/quiz/quiz.component";
+import {QuizComponent} from "./player-type/quiz/quiz/quiz.component";
+import {QuestsComponent} from "./quests/quests.component";
+import {AccountComponent} from "./account/account.component";
+import {SocialComponent} from "./social/social.component";
+import {GamePageComponent} from "./library/game-page/game-page.component";
 
 export const routes: Routes = [
   {
     path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
     component: HomeComponent,
     title: 'Home'
   },
@@ -17,18 +25,33 @@ export const routes: Routes = [
     title: 'Quiz',
   },
   {
-    path: 'loadingScreen',
-    component: LoadingScreenComponent,
-    title: 'Loading...'
-  },
-  {
     path: 'library',
     component: LibraryComponent,
     title: 'Library'
   },
   {
-    path: 'playertype',
-    component: PlayertypeComponent,
-    title: 'Playertype'
+    path: 'player-type',
+    component: PlayerTypeComponent,
+    title: 'PlayerType'
+  },
+  {
+    path: 'quests',
+    component: QuestsComponent,
+    title: 'Quests'
+  },
+  {
+    path: 'social',
+    component: SocialComponent,
+    title: 'Social'
+  },
+  {
+    path: 'account',
+    component: AccountComponent,
+    title: 'Account'
+  },
+  {
+    path: 'game-page/:id',
+    component: GamePageComponent,
+    title: 'Game Page'
   }
 ];
