@@ -2,12 +2,12 @@
   "Beater": {
     "OwnedGames": [
       {
-        "ID": "01",
+        "ID": 1,
         "AcceptedAchievements": [],
         "GeneratedAchievements": []
       },
       {
-        "ID": "02",
+        "ID": 2,
         "AcceptedAchievements": [],
         "GeneratedAchievements": []
       }
@@ -18,12 +18,12 @@
   "Cheater": {
     "OwnedGames": [
       {
-        "ID": "01",
+        "ID": 1,
         "AcceptedAchievements": [],
         "GeneratedAchievements": []
       },
       {
-        "ID": "02",
+        "ID": 2,
         "AcceptedAchievements": [],
         "GeneratedAchievements": []
       }
