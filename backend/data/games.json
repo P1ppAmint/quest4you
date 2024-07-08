@@ -1,62 +1,236 @@
 [
   {
+    "gameID" : 0,
     "name" : "Minecraft",
-    "OriginalAchievements" : [],
-    "GameContentDatasetID" : []
+    "OriginalAchievements" : [
+      {
+      "QuestID": 0,
+      "QuestName": "Bake Bread",
+      "QuestDescription": "Turn wheat into bread.",
+      "questStatus": "completed"
+      },
+      {
+        "QuestID": 1,
+        "QuestName": "Archer",
+        "QuestDescription": "Kill a creeper with arrows.",
+        "questStatus": "completed"
+      },
+      {
+        "QuestID": 2,
+        "QuestName": "Benchmaking",
+        "QuestDescription": "Craft a workbench with four blocks of wooden planks.",
+        "questStatus": "completed"
+      },
+      {
+        "QuestID": 3,
+        "QuestName": "Body Guard",
+        "QuestDescription": "Create an Iron Golem.",
+        "questStatus": "ongoing"
+      },
+      {
+        "QuestID": 4,
+        "QuestName": "Camouflage",
+        "QuestDescription": "Kill a mob while wearing the same type of mob head.",
+        "questStatus": "ongoing"
+      }
+    ]
   },
   {
+    "gameID" : 1,
     "name" : "Terraria",
-    "OriginalAchievements" : [],
-    "GameContentDatasetID" : []
+    "OriginalAchievements" : [
+      {
+      "QuestID": 0,
+      "QuestName": "",
+      "QuestDescription": "",
+      "questStatus": "completed/ongoing"
+      },
+      {
+        "QuestID": 1,
+        "QuestName": "",
+        "QuestDescription": "",
+        "questStatus": "completed/ongoing"
+      }
+    ]
   },
   {
+    "gameID" : 2,
     "name" : "The Elder Scrolls V Skyrim",
-    "OriginalAchievements" : [],
-    "GameContentDatasetID" : []
+    "OriginalAchievements" : [
+      {
+      "QuestID": 0,
+      "QuestName": "",
+      "QuestDescription": "",
+      "questStatus": "completed/ongoing"
+      },
+      {
+        "QuestID": 1,
+        "QuestName": "",
+        "QuestDescription": "",
+        "questStatus": "completed/ongoing"
+      }
+    ]
   },
   {
+    "gameID" : 3,
     "name" : "The Witcher 3: Wild Hunt",
-    "OriginalAchievements" : [],
-    "GameContentDatasetID" : []
+    "OriginalAchievements" : [
+      {
+      "QuestID": 0,
+      "QuestName": "",
+      "QuestDescription": "",
+      "questStatus": "completed/ongoing"
+      },
+      {
+        "QuestID": 1,
+        "QuestName": "",
+        "QuestDescription": "",
+        "questStatus": "completed/ongoing"
+      }
+    ]
   },
   {
+    "gameID" : 4,
     "name" : "The Binding of Isaac: Rebirth",
-    "OriginalAchievements" : [],
-    "GameContentDatasetID" : []
+    "OriginalAchievements" : [
+      {
+      "QuestID": 0,
+      "QuestName": "",
+      "QuestDescription": "",
+      "questStatus": "completed/ongoing"
+      },
+      {
+        "QuestID": 1,
+        "QuestName": "",
+        "QuestDescription": "",
+        "questStatus": "completed/ongoing"
+      }
+    ]
   },
   {
+    "gameID" : 5,
     "name" : "Brotato",
-    "OriginalAchievements" : [],
-    "GameContentDatasetID" : []
+    "OriginalAchievements" : [
+      {
+      "QuestID": 0,
+      "QuestName": "",
+      "QuestDescription": "",
+      "questStatus": "completed/ongoing"
+      },
+      {
+        "QuestID": 1,
+        "QuestName": "",
+        "QuestDescription": "",
+        "questStatus": "completed/ongoing"
+      }
+    ]
   },
   {
+    "gameID" : 6,
     "name" : "League of Legends",
-    "OriginalAchievements" : [],
-    "GameContentDatasetID" : []
+    "OriginalAchievements" : [
+      {
+      "QuestID": 0,
+      "QuestName": "",
+      "QuestDescription": "",
+      "questStatus": "completed/ongoing"
+      },
+      {
+        "QuestID": 1,
+        "QuestName": "",
+        "QuestDescription": "",
+        "questStatus": "completed/ongoing"
+      }
+    ]
   },
   {
+    "gameID" : 7,
     "name" : "Starfield",
-    "OriginalAchievements" : [],
-    "GameContentDatasetID" : []
+    "OriginalAchievements" : [
+      {
+      "QuestID": 0,
+      "QuestName": "",
+      "QuestDescription": "",
+      "questStatus": "completed/ongoing"
+      },
+      {
+        "QuestID": 1,
+        "QuestName": "",
+        "QuestDescription": "",
+        "questStatus": "completed/ongoing"
+      }
+    ]
   },
   {
+    "gameID" : 8,
     "name" : "Monster Hunter: World",
-    "OriginalAchievements" : [],
-    "GameContentDatasetID" : []
+    "OriginalAchievements" : [
+      {
+      "QuestID": 0,
+      "QuestName": "",
+      "QuestDescription": "",
+      "questStatus": "completed/ongoing"
+      },
+      {
+        "QuestID": 1,
+        "QuestName": "",
+        "QuestDescription": "",
+        "questStatus": "completed/ongoing"
+      }
+    ]
   },
   {
+    "gameID" : 9,
     "name" : "Overwatch 2",
-    "OriginalAchievements" : [],
-    "GameContentDatasetID" : []
+    "OriginalAchievements" : [
+      {
+      "QuestID": 0,
+      "QuestName": "",
+      "QuestDescription": "",
+      "questStatus": "completed/ongoing"
+      },
+      {
+        "QuestID": 1,
+        "QuestName": "",
+        "QuestDescription": "",
+        "questStatus": "completed/ongoing"
+      }
+    ]
   },
   {
+    "gameID" : 10,
     "name" : "Horizon: Forbidden West",
-    "OriginalAchievements" : [],
-    "GameContentDatasetID" : []
+    "OriginalAchievements" : [
+      {
+      "QuestID": 0,
+      "QuestName": "",
+      "QuestDescription": "",
+      "questStatus": "completed/ongoing"
+      },
+      {
+        "QuestID": 1,
+        "QuestName": "",
+        "QuestDescription": "",
+        "questStatus": "completed/ongoing"
+      }
+    ]
   },
   {
+    "gameID" : 11,
     "name" : "Fallout 4",
-    "OriginalAchievements" : [],
-    "GameContentDatasetID" : []
+    "OriginalAchievements" : [
+      {
+      "QuestID": 0,
+      "QuestName": "",
+      "QuestDescription": "",
+      "questStatus": "completed/ongoing"
+      },
+      {
+        "QuestID": 1,
+        "QuestName": "",
+        "QuestDescription": "",
+        "questStatus": "completed/ongoing"
+      }
+    ]
   }
 ]
