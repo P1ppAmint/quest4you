@@ -1,7 +1,0 @@
-.app-interface{
-  display: grid;
-  grid-template-columns: auto auto;
-  height: 100%;
-  column-gap: 32pt;
-}
-

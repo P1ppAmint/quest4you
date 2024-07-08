@@ -1,0 +1,7 @@
+.app-interface{
+  display: grid;
+  //TODO fit-content could cause problems
+  grid-template-columns: fit-content(20%) auto;
+  height: 100%;
+  column-gap: 32pt;
+}
