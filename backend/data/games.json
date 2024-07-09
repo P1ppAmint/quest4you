@@ -2,7 +2,8 @@
   {
     "GameId": 0,
     "Title": "Minecraft",
-    "OriginalQuests": [
+    "OriginalQuests": 
+    [
       {
       "QuestId": 0,
       "QuestName": "Bake Bread",
@@ -38,7 +39,8 @@
   {
     "GameId": 1,
     "Title": "Terraria",
-    "OriginalQuests": [
+    "OriginalQuests": 
+    [
       {
         "QuestId": 0,
         "QuestName": "Terraria Expert",
@@ -74,7 +76,8 @@
   {
     "GameId": 2,
     "Title": "The Elder Scrolls V Skyrim",
-    "OriginalQuests": [
+    "OriginalQuests": 
+    [
       {
         "QuestId": 0,
         "QuestName": "Take Up Arms",
@@ -110,7 +113,8 @@
   {
     "GameId": 3,
     "Title": "The Witcher 3: Wild Hunt",
-    "OriginalQuests": [
+    "OriginalQuests": 
+    [
       {
       "QuestId": 0,
         "QuestName": "Armed and Dangerous",
@@ -146,7 +150,8 @@
   {
     "GameId": 4,
     "Title": "The Binding of Isaac: Rebirth",
-    "OriginalQuests": [
+    "OriginalQuests": 
+    [
       {
         "QuestId": 0,
           "QuestName": "The Womb",
@@ -194,7 +199,8 @@
   {
     "GameId": 5,
     "Title": "Brotato",
-    "OriginalQuests": [
+    "OriginalQuests": 
+    [
       {
         "QuestId": 0,
           "QuestName": "Survivor 1",
@@ -230,7 +236,8 @@
   {
     "GameId": 6,
     "Title": "League of Legends",
-    "OriginalQuests": [
+    "OriginalQuests": 
+    [
       {
         "QuestId": 0,
           "QuestName": "The Jukes!",
@@ -266,7 +273,8 @@
   {
     "GameId": 7,
     "Title": "Starfield",
-    "OriginalQuests": [
+    "OriginalQuests": 
+    [
       {
         "QuestId": 0,
           "QuestName": "One Small Step",
@@ -296,7 +304,8 @@
   {
     "GameId": 8,
     "Title": "Monster Hunter: World",
-    "OriginalQuests": [
+    "OriginalQuests": 
+    [
       {
         "QuestId": 0,
           "QuestName": "The Franchise Hunter",
@@ -332,7 +341,8 @@
   {
     "GameId": 9,
     "Title": "Overwatch 2",
-    "OriginalQuests": [
+    "OriginalQuests": 
+    [
       {
         "QuestId": 0,
           "QuestName": "Centenary",
@@ -368,7 +378,8 @@
   {
     "GameId": 10,
     "Title": "Horizon: Forbidden West",
-    "OriginalQuests": [
+    "OriginalQuests": 
+    [
       {
         "QuestId": 0,
           "QuestName": "Reached the Daunt",
@@ -404,7 +415,8 @@
   {
     "GameId": 11,
     "Title": "Fallout 4",
-    "OriginalQuests": [
+    "OriginalQuests": 
+    [
       {
         "QuestId": 0,
           "QuestName": "The First Step",

@@ -84,8 +84,8 @@ def get_vanilla_quests(game_id):
         data = json.load(file)
         if game_id < 0 or game_id >= len(data):
             return jsonify({"error": "Game not found"}), 404
-        print(f'OriginalQuests: {data[game_id]['OriginalQuests']}')
-        return jsonify(data[game_id]['OriginalQuests'])
+        print(f'OriginalQuests: {data[game_id]["OriginalQuests"]}')
+        return jsonify(data[game_id]["OriginalQuests"])
 
 
 @app.route('/api/users/test/<int:game_id>/accepted-quests')
