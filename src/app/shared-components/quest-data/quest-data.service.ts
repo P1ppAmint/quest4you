@@ -11,7 +11,6 @@ export class QuestDataService {
 
   private  baseUrl = 'http://127.0.0.1:5000/api/users/test/';
 
-  //OPTIMIZE Create cash for common loaded => flyweight pattern
   constructor(private http: HttpClient) {
   }
 
@@ -36,14 +35,14 @@ export class QuestDataService {
 
 
   //Get Data: All Vanilla Achievements of the Game
-    public getVanillaQuests(gameId : number) : Observable<QuestData[]> {
-      const url = `http://127.0.0.1:5000/api/games/${gameId}/vanilla-quests`
-      return this.http.get<any[]>(url).pipe(
-        tap(_ => console.log(`fetched vanillaQuests id = ${gameId}`)),
-        map(data => data.map(item => this.transformToQuestData(item, QuestType.vanilla))),
-        catchError(this.handleError<QuestData[]>(`getVanillaQuests id=${gameId}`))
-      );
-    }
+  public getVanillaQuests(gameId : number) : Observable<QuestData[]> {
+    const url = `http://127.0.0.1:5000/api/games/${gameId}/vanilla-quests`
+    return this.http.get<any[]>(url).pipe(
+      tap(_ => console.log(`fetched vanillaQuests id = ${gameId}`)),
+      map(data => data.map(item => this.transformToQuestData(item, QuestType.vanilla))),
+      catchError(this.handleError<QuestData[]>(`getVanillaQuests id=${gameId}`))
+    );
+  }
 
 
   private transformToQuestData(item: any, questType : QuestType = QuestType.generated): QuestData {
@@ -57,13 +56,19 @@ export class QuestDataService {
   }
 
 
+  //Set Data: AcceptedQuest
+  public acceptQuest(gameId : number, questId : number): void{
+    const url = `${this.baseUrl}${gameId}/accept-quest/${questId}`;
+    this.http.get(url);
+  }
 
 
-
-  //Set Data: AcceptedAchievements
-
-  //Action: ActivateAchievementGenerationProcess
-
+  //Action: ActivateQuestGenerationProcess
+  public generateQuests(gameId : number): void {
+    console.log("Quest Service: Received generation request")
+    const url = `${this.baseUrl}${gameId}/generate-quests`;
+    this.http.get(url);
+  }
 
 
   private handleError<T>(operation = 'operation', result?:T) {

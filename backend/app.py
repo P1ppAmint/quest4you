@@ -37,6 +37,20 @@ def get_user():
     return user_data
 
 
+@app.route('/api/users/test/player-type')
+def get_player_type():
+    with open('./data/users.json') as file:
+        user_data = json.load(file)["Beater"]["PlayerType"]
+    return jsonify(user_data)
+
+
+@app.route('/api/users/test/has-answered-quiz')
+def has_answered_quiz():
+    with open('./data/users.json') as file:
+        user_data = json.load(file)["Beater"]["HasAnsweredQuiz"]
+    return jsonify(user_data)
+
+
 @app.route('/api/users/test/answers')
 def get_user_answers():
     return get_user()["QuizAnswers"]
@@ -47,6 +61,7 @@ def save_final_answers():
     data = request.json
     print('Final answers received in app.py:')
     print(data)
+    # TODO add setting of "HasAnsweredQuiz" Field
     #return jsonify(data)
 
 

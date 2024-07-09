@@ -21,6 +21,7 @@ export class GamePageComponent implements OnInit{
   gameData : GameData | undefined;
   vanillaQuests : QuestData[] | undefined;
   acceptedQuests : QuestData[] | undefined;
+  gameId : number = 0;
 
 
   constructor(private gameDataService : GameDataService, private questDataService : QuestDataService) {
@@ -32,11 +33,19 @@ export class GamePageComponent implements OnInit{
 
   getGameData(): void {
     const gameId = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+    this.gameId = gameId;
     this.gameDataService.getGameData(gameId).subscribe(gameData => this.gameData = gameData);
     this.questDataService.getVanillaQuests(gameId).subscribe(vanillaQuests => this.vanillaQuests = vanillaQuests)
     this.questDataService.getAcceptedQuests(gameId).subscribe(acceptedQuests => this.acceptedQuests = acceptedQuests)
 
   }
 
+  generateQuests(): void {
+    console.log("Frontend trigger quest generation")
+    this.questDataService.generateQuests(this.gameId);
+
+    // TODO implement
+    // open QuestBoard
+  }
 
 }
