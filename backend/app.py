@@ -116,7 +116,18 @@ def get_generated_quests(game_id):
     return jsonify({"error": "Game not found"}), 404
 
 
+@app.route('/api/users/test/<int:game_id>/generate-quests')
+def generate_quests(game_id):
+    print(f'Generating Quests for {game_id}')
+    # TODO implement generation process trigger
+    return
 
+
+@app.route('/api/users/test/<int:game_id>/accept-quest/<int:quest_id>')
+def accept_quest(game_id, quest_id):
+    print(f'Accepting Quest with {quest_id} for game {game_id}')
+    # TODO implement quest accepting behavior
+    return
 
 
 if __name__ == '__main__':
