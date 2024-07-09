@@ -1,8 +1,16 @@
 <h1>Player Type</h1>
 
-@if (hasTakenQuiz) {
-  <button>Modify current profile</button>
-  <button>Create new Profile</button>
+@if (hasTakenQuiz){
+  <main>
+    @if(playerType){
+      <app-player-type-chart [playerTypeData]="playerType"></app-player-type-chart>
+    }
+    <section class="button-container">
+      <button [routerLink]="['/quiz']">Modify current profile</button>
+      <button>Create new Profile</button>
+    </section>
+  </main>
+
 } @else {
   <button [routerLink]="['/quiz']">Take Test</button>
 }
