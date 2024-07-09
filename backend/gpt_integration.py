@@ -6,14 +6,74 @@ import pandas as pd
 
 questions_data = {}
 
+player_type_profile = {
+  'Socializer': 0,
+  'Explorer': 0,
+  'Killer': 0,
+  'Achiever': 0
+}
+
+main_player_type = ''
+
+minecraft_df = pd.read_csv('data/mc_object_data.csv')
+tag_to_ptype_df = pd.read_csv('data/tag_to_ptype.csv')
+
+def calculate_playertype(answer_dict):
+    for key in answer_dict:
+        # print(f'Key: {key} + value: {answer_dict[key]}')
+
+        value = answer_dict[key]
+
+        if value == '+S':
+            player_type_profile['Socializer'] += 1
+        elif value == '+A':
+            player_type_profile['Achiever'] += 1
+        elif value == '+E':
+            player_type_profile['Explorer'] += 1
+        elif value == '+K':
+            player_type_profile['Killer'] += 1
+
+    print(player_type_profile)
+
+    player_type = max(player_type_profile, key=player_type_profile.get)
+
+    print('Main player type: ', player_type)
+
+    # filter tags by player type
+    appropriate_tags = tag_to_ptype_df[tag_to_ptype_df[player_type] >= 0.3]
+    print(appropriate_tags)
+
+    # random selection of tags (or even go as far as just include tags above 50%)
+
+    filtered_df = minecraft_df.loc[minecraft_df['Objects'] == '']
+
+    # filter out the tags of mc dataset
+    for tag in appropriate_tags['Tag']:
+        # print('Tag is: ',tag)
+        tag_df = minecraft_df.loc[(minecraft_df['Action'].str.contains(tag) | minecraft_df['Type precise'].str.contains(tag))]
+        filtered_df = pd.concat([filtered_df, tag_df], ignore_index=True)
+
+    filtered_df.drop_duplicates(inplace=True)
+    # print('Filtered df: ', filtered_df)
+
+    # extract relevant tags for prompt generation
+    # note: maybe include 'rarity' tag at some point too?
+    filtered_prompt_df = filtered_df[['Objects', 'Action', 'Occurance']]
+    print('Dataframe used for prompt:', filtered_prompt_df)
+
+    # TODO trim down to 20 or so entries (or do we do that directly in the prompt then?)
+
+    # TODO create prompt! (using the filtered filtered dataframe we got for this specific player type)
+    # + think about feeding the verbs down to the prompt in a list as well! (try just extracting the matching tags as a list
+    # or somehow filter the actual actions out of the extracted tags by playertype in any other way)
+
+    # note: quest stuff ist in quest-data.ts ! (sprich da gibts schon ne struktur, die einfach befüllt werden muss)
+
+
 def printData():
   print('Received answers in gpt integration script: \n' + str(questions_data))
 
-# minecraft_df = pd.read_csv('Test-Datensatz_fur_Alex.csv')
-#
 # mc_mobs = minecraft_df[minecraft_df['Type'].isin(['mob'])]
-#
-# killer_tags = ['kill', 'mob', 'Hostile']
 # explorer_tags = []
 #
 #
@@ -71,3 +131,7 @@ def printData():
 # kann tags hinzufügen zu dem stuff
 
 # schauen, wie man daten abspeichert
+
+# den dictionary lesen wir aus der JSON file aus!!
+
+# beim button 'Generieren' werden dann die daten aus dem JSON ausgelesen und ans backend gesendet
