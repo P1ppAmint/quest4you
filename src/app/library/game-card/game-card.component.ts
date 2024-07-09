@@ -1,15 +1,17 @@
 import {Component, Input, numberAttribute} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-game-card',
   standalone: true,
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    RouterLink
   ],
   template: `
-    <button class="game-card-button">
-      <img ngSrc="assets/images/game-cards/{{gameID}}_cover.png" width="220" height="300" alt="">
+    <button class="game-card-button" [routerLink]="['/game-page', gameID]">
+      <img ngSrc="assets/images/game-cards/{{gameID}}_cover.png" width="220" height="300" alt="" priority>
     </button>
   `,
   styles: `

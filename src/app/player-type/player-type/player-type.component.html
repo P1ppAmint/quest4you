@@ -1,0 +1,9 @@
+<h1>Player Type</h1>
+
+@if (hasTakenQuiz) {
+  <button>Modify current profile</button>
+  <button>Create new Profile</button>
+} @else {
+  <button [routerLink]="['/quiz']">Take Test</button>
+}
+

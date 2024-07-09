@@ -8,10 +8,25 @@ import { NgOptimizedImage } from "@angular/common";
     NgOptimizedImage
   ],
   template: `
-      <img ngSrc="assets/images/loading-screen-background.png" width="1440" height="1024" alt ="Background"/>
+    <img class="background" ngSrc="assets/images/loading_screen_background.png" width="1440" height="1024" alt ="Background"/>
+    <div class="logo-container">
       <img class="logo" ngSrc="assets/images/logo.png" alt="Logo" width="200" height="200"/>
+    </div>
   `,
-  styles: ``
+  styles: `
+    .background {
+      position: absolute;
+      width: 100%;
+      height: max-content;
+    }
+
+    .logo-container {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  `
 })
 export class LoadingScreenComponent {
 

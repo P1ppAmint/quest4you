@@ -1,235 +1,235 @@
 [
   {
-    "gameID" : 0,
-    "name" : "Minecraft",
-    "OriginalAchievements" : [
+    "GameId": 0,
+    "Title": "Minecraft",
+    "OriginalQuests": [
       {
-      "QuestID": 0,
+      "Id": 0,
       "QuestName": "Bake Bread",
       "QuestDescription": "Turn wheat into bread.",
-      "questStatus": "completed"
+      "QuestStatus": "completed"
       },
       {
-        "QuestID": 1,
+        "Id": 1,
         "QuestName": "Archer",
         "QuestDescription": "Kill a creeper with arrows.",
-        "questStatus": "completed"
+        "QuestStatus": "completed"
       },
       {
-        "QuestID": 2,
+        "Id": 2,
         "QuestName": "Benchmaking",
         "QuestDescription": "Craft a workbench with four blocks of wooden planks.",
-        "questStatus": "completed"
+        "QuestStatus": "completed"
       },
       {
-        "QuestID": 3,
+        "Id": 3,
         "QuestName": "Body Guard",
         "QuestDescription": "Create an Iron Golem.",
-        "questStatus": "ongoing"
+        "QuestStatus": "ongoing"
       },
       {
-        "QuestID": 4,
+        "Id": 4,
         "QuestName": "Camouflage",
         "QuestDescription": "Kill a mob while wearing the same type of mob head.",
-        "questStatus": "ongoing"
+        "QuestStatus": "ongoing"
       }
     ]
   },
   {
-    "gameID" : 1,
-    "name" : "Terraria",
-    "OriginalAchievements" : [
+    "GameId": 1,
+    "Title": "Terraria",
+    "OriginalQuests": [
       {
-      "QuestID": 0,
+      "Id": 0,
       "QuestName": "",
       "QuestDescription": "",
-      "questStatus": "completed/ongoing"
+      "QuestStatus": "completed/ongoing"
       },
       {
-        "QuestID": 1,
+        "Id": 1,
         "QuestName": "",
         "QuestDescription": "",
-        "questStatus": "completed/ongoing"
+        "QuestStatus": "completed/ongoing"
       }
     ]
   },
   {
-    "gameID" : 2,
-    "name" : "The Elder Scrolls V Skyrim",
-    "OriginalAchievements" : [
+    "GameId": 2,
+    "Title": "The Elder Scrolls V Skyrim",
+    "OriginalQuests": [
       {
-      "QuestID": 0,
+      "Id": 0,
       "QuestName": "",
       "QuestDescription": "",
-      "questStatus": "completed/ongoing"
+      "QuestStatus": "completed/ongoing"
       },
       {
-        "QuestID": 1,
+        "Id": 1,
         "QuestName": "",
         "QuestDescription": "",
-        "questStatus": "completed/ongoing"
+        "QuestStatus": "completed/ongoing"
       }
     ]
   },
   {
-    "gameID" : 3,
-    "name" : "The Witcher 3: Wild Hunt",
-    "OriginalAchievements" : [
+    "GameId": 3,
+    "Title": "The Witcher 3: Wild Hunt",
+    "OriginalQuests": [
       {
-      "QuestID": 0,
+      "Id": 0,
       "QuestName": "",
       "QuestDescription": "",
-      "questStatus": "completed/ongoing"
+      "QuestStatus": "completed/ongoing"
       },
       {
-        "QuestID": 1,
+        "Id": 1,
         "QuestName": "",
         "QuestDescription": "",
-        "questStatus": "completed/ongoing"
+        "QuestStatus": "completed/ongoing"
       }
     ]
   },
   {
-    "gameID" : 4,
-    "name" : "The Binding of Isaac: Rebirth",
-    "OriginalAchievements" : [
+    "GameId": 4,
+    "Title": "The Binding of Isaac: Rebirth",
+    "OriginalQuests": [
       {
-      "QuestID": 0,
+      "Id": 0,
       "QuestName": "",
       "QuestDescription": "",
-      "questStatus": "completed/ongoing"
+      "QuestStatus": "completed/ongoing"
       },
       {
-        "QuestID": 1,
+        "Id": 1,
         "QuestName": "",
         "QuestDescription": "",
-        "questStatus": "completed/ongoing"
+        "QuestStatus": "completed/ongoing"
       }
     ]
   },
   {
-    "gameID" : 5,
-    "name" : "Brotato",
-    "OriginalAchievements" : [
+    "GameId": 5,
+    "Title": "Brotato",
+    "OriginalQuests": [
       {
-      "QuestID": 0,
+      "Id": 0,
       "QuestName": "",
       "QuestDescription": "",
-      "questStatus": "completed/ongoing"
+      "QuestStatus": "completed/ongoing"
       },
       {
-        "QuestID": 1,
+        "Id": 1,
         "QuestName": "",
         "QuestDescription": "",
-        "questStatus": "completed/ongoing"
+        "QuestStatus": "completed/ongoing"
       }
     ]
   },
   {
-    "gameID" : 6,
-    "name" : "League of Legends",
-    "OriginalAchievements" : [
+    "GameId": 6,
+    "Title": "League of Legends",
+    "OriginalQuests": [
       {
-      "QuestID": 0,
+      "Id": 0,
       "QuestName": "",
       "QuestDescription": "",
-      "questStatus": "completed/ongoing"
+      "QuestStatus": "completed/ongoing"
       },
       {
-        "QuestID": 1,
+        "Id": 1,
         "QuestName": "",
         "QuestDescription": "",
-        "questStatus": "completed/ongoing"
+        "QuestStatus": "completed/ongoing"
       }
     ]
   },
   {
-    "gameID" : 7,
-    "name" : "Starfield",
-    "OriginalAchievements" : [
+    "GameId": 7,
+    "Title" : "Starfield",
+    "OriginalQuests": [
       {
-      "QuestID": 0,
+      "Id": 0,
       "QuestName": "",
       "QuestDescription": "",
-      "questStatus": "completed/ongoing"
+      "QuestStatus": "completed/ongoing"
       },
       {
-        "QuestID": 1,
+        "Id": 1,
         "QuestName": "",
         "QuestDescription": "",
-        "questStatus": "completed/ongoing"
+        "QuestStatus": "completed/ongoing"
       }
     ]
   },
   {
-    "gameID" : 8,
-    "name" : "Monster Hunter: World",
-    "OriginalAchievements" : [
+    "GameId": 8,
+    "Title" : "Monster Hunter: World",
+    "OriginalQuests": [
       {
-      "QuestID": 0,
+      "Id": 0,
       "QuestName": "",
       "QuestDescription": "",
-      "questStatus": "completed/ongoing"
+      "QuestStatus": "completed/ongoing"
       },
       {
-        "QuestID": 1,
+        "Id": 1,
         "QuestName": "",
         "QuestDescription": "",
-        "questStatus": "completed/ongoing"
+        "QuestStatus": "completed/ongoing"
       }
     ]
   },
   {
-    "gameID" : 9,
-    "name" : "Overwatch 2",
-    "OriginalAchievements" : [
+    "GameId": 9,
+    "Title" : "Overwatch 2",
+    "OriginalQuests": [
       {
-      "QuestID": 0,
+      "Id": 0,
       "QuestName": "",
       "QuestDescription": "",
-      "questStatus": "completed/ongoing"
+      "QuestStatus": "completed/ongoing"
       },
       {
-        "QuestID": 1,
+        "Id": 1,
         "QuestName": "",
         "QuestDescription": "",
-        "questStatus": "completed/ongoing"
+        "QuestStatus": "completed/ongoing"
       }
     ]
   },
   {
-    "gameID" : 10,
-    "name" : "Horizon: Forbidden West",
-    "OriginalAchievements" : [
+    "GameId": 10,
+    "Title" : "Horizon: Forbidden West",
+    "OriginalQuests": [
       {
-      "QuestID": 0,
+      "Id": 0,
       "QuestName": "",
       "QuestDescription": "",
-      "questStatus": "completed/ongoing"
+      "QuestStatus": "completed/ongoing"
       },
       {
-        "QuestID": 1,
+        "Id": 1,
         "QuestName": "",
         "QuestDescription": "",
-        "questStatus": "completed/ongoing"
+        "QuestStatus": "completed/ongoing"
       }
     ]
   },
   {
-    "gameID" : 11,
-    "name" : "Fallout 4",
-    "OriginalAchievements" : [
+    "GameId": 11,
+    "Title" : "Fallout 4",
+    "OriginalQuests": [
       {
-      "QuestID": 0,
+      "Id": 0,
       "QuestName": "",
       "QuestDescription": "",
-      "questStatus": "completed/ongoing"
+      "QuestStatus": "completed/ongoing"
       },
       {
-        "QuestID": 1,
+        "Id": 1,
         "QuestName": "",
         "QuestDescription": "",
-        "questStatus": "completed/ongoing"
+        "QuestStatus": "completed/ongoing"
       }
     ]
   }

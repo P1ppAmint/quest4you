@@ -50,5 +50,74 @@ def save_final_answers():
     #return jsonify(data)
 
 
+@app.route('/api/users/test/owned-game-ids')
+def get_owned_game_ids():
+    owned_game_ids = []
+    with open('./data/users.json') as file:
+        owned_games = json.load(file)["Beater"]["OwnedGames"]
+
+    for ownedGame in owned_games:
+        owned_game_ids.append(ownedGame["Id"])
+    owned_game_ids = jsonify(owned_game_ids)
+
+    return owned_game_ids
+
+
+@app.route('/api/games/<int:game_id>')
+def get_game(game_id):
+    with open('./data/games.json') as file:
+        data = json.load(file)
+        if game_id < 0 or game_id >= len(data):
+            return jsonify({"error": "Game not found"}), 404
+        game_data = data[game_id]
+        game_info = {
+          "GameId": game_data["GameId"],
+          "Title": game_data.get("Title", game_data.get("name", ""))
+        }
+        print(game_info)
+        return jsonify(game_info)
+
+
+@app.route('/api/games/<int:game_id>/vanilla-quests')
+def get_vanilla_quests(game_id):
+    with open('./data/games.json') as file:
+        data = json.load(file)
+        if game_id < 0 or game_id >= len(data):
+            return jsonify({"error": "Game not found"}), 404
+        print(f'OriginalQuests: {data[game_id]['OriginalQuests']}')
+        return jsonify(data[game_id]['OriginalQuests'])
+
+
+@app.route('/api/users/test/<int:game_id>/accepted-quests')
+def get_accepted_quests(game_id):
+    with open('./data/users.json') as file:
+        data = json.load(file)
+    if game_id < 0 or game_id >= len(data):
+        return jsonify({"error": "Game not found"}), 404
+    for game in data["Beater"]["OwnedGames"]:
+        if game["Id"] == game_id:
+            print(f'AcceptedQuests: {game["AcceptedQuests"]}')
+            return jsonify(game["AcceptedQuests"])
+
+    return jsonify({"error": "Game not found"}), 404
+
+
+@app.route('/api/users/test/<int:game_id>/generated-quests')
+def get_generated_quests(game_id):
+    with open('./data/users.json') as file:
+        data = json.load(file)
+    if game_id < 0 or game_id >= len(data):
+        return jsonify({"error": "Game not found"}), 404
+    for game in data["Beater"]["OwnedGames"]:
+        if game["Id"] == game_id:
+            print(f'GeneratedQuests: {game["GeneratedQuests"]}')
+            return jsonify(game["GeneratedQuests"])
+
+    return jsonify({"error": "Game not found"}), 404
+
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)

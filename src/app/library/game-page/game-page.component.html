@@ -1,1 +1,15 @@
-<p>game-page works!</p>
+@if (gameData) {
+  <h1>{{gameData.title}}</h1>
+  <button>Play</button>
+  @if (vanillaQuests) {
+    <app-quest-display title="Basic Quests" [quests]="vanillaQuests"></app-quest-display>
+  }
+  @if (acceptedQuests) {
+    <app-quest-display title="Accepted Quests" [quests]="acceptedQuests"></app-quest-display>
+  }
+
+  <button>Generate Quests</button>
+}
+
+
+

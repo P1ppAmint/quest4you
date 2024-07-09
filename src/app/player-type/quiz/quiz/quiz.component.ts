@@ -11,7 +11,7 @@ import {QuizQuestion} from "../quiz-question";
     NgOptimizedImage
   ],
   templateUrl: './quiz.component.html',
-  styleUrl: './quiz.component.css'
+  styleUrl: './quiz.component.scss'
 })
 export class QuizComponent implements OnInit{
   progressbarIndicatorWindow : number = 4;

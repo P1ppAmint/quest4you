@@ -10,7 +10,6 @@ export class QuizQuestionService {
   public quizQuestions: QuizQuestion[] = [];
   questionDataset : any;
   answersGiven : any;
-  really_finalAnswers: any;
 
   constructor(private http: HttpClient) {
     this.loadQuestionData()

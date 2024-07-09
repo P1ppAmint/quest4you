@@ -1,7 +1,11 @@
-<div class="app-interface">
-  <app-sidebar></app-sidebar>
-  <main>
-    <router-outlet/>
-  </main>
-</div>
+@defer {
+  <div class="app-interface">
+    <app-sidebar></app-sidebar>
+    <main>
+      <router-outlet/>
+    </main>
+  </div>
+} @loading (minimum 2s) {
+  <app-loading-screen></app-loading-screen>
 
+}
