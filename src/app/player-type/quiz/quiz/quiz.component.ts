@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgOptimizedImage } from "@angular/common";
 import {QuizQuestionService} from "../quiz-question.service";
-
-import {QuizQuestion} from "../quiz-question";
+import {QuizQuestionData} from "../quiz-question-data";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-quiz',
@@ -16,9 +16,9 @@ import {QuizQuestion} from "../quiz-question";
 export class QuizComponent implements OnInit{
   progressbarIndicatorWindow : number = 4;
 
-  quizQuestions : QuizQuestion[] = [];
+  quizQuestions : QuizQuestionData[] = [];
 
-  currentQuizQuestion : QuizQuestion = new QuizQuestion("","", "", "", "", "");
+  currentQuizQuestion : QuizQuestionData = new QuizQuestionData(0,"", "", "", "", "", "");
 
   currentQuestionIndex : number = 0;
   quizLength : number = 0;
@@ -26,17 +26,21 @@ export class QuizComponent implements OnInit{
   //just for debugging TODO remove later
   result : {[resultType : string] : number} = {'+A': 0, '+E' : 0, '+S' : 0, '+K' : 0 };
 
-  constructor(private quizQuestionService: QuizQuestionService) {}
+  constructor(private quizQuestionService: QuizQuestionService, private location : Location) {}
 
   ngOnInit(): void {
     this.getData()
   }
 
-  getData() : void {
-    this.quizQuestions = this.quizQuestionService.quizQuestions;
-    this.quizLength = this.quizQuestions.length;
-    this.loadQuestionData(this.currentQuestionIndex)
+  private getData() : void {
+    this.quizQuestionService.loadQuestions().subscribe(questions =>
+    {
+      this.quizQuestions = questions
+      this.loadQuestionData(this.currentQuestionIndex)
+    });
+    this.quizQuestionService.getQuestionSetLength().subscribe(length => this.quizLength);
   }
+
 
 
   public onAnswer(answer : string) : void  {
@@ -55,10 +59,6 @@ export class QuizComponent implements OnInit{
       this.changeQuestion(this.currentQuestionIndex)
     }
 
-  }
-
-  public updateArray() : void {
-    this.quizQuestionService.loadQuestionData()
   }
 
   public previousQuestion() : void {
@@ -81,18 +81,25 @@ export class QuizComponent implements OnInit{
   }
 
   public finishQuiz() : void {
+
     //save data
-    this.quizQuestionService.saveQuestionData();
+    this.quizQuestionService.saveQuestionData(this.quizQuestions);
     //load result screen
+    this.location.back();
+
   }
 
   private checkQuizCompletion() : boolean {
     let allAnswered : boolean = true;
-    this.quizQuestions.forEach((quizQuestion : QuizQuestion) => {
+    this.quizQuestions.forEach((quizQuestion : QuizQuestionData) => {
       if (!quizQuestion.isAnswered) allAnswered = false;
     })
     console.log(allAnswered)
     return allAnswered;
+  }
+
+  public skipQuiz(): void {
+    this.finishQuiz()
   }
 
 }

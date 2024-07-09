@@ -1,4 +1,4 @@
-import {Component, Input, numberAttribute} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {QuestData} from "../quest-data/quest-data";
 
 @Component({

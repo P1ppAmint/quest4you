@@ -20,7 +20,8 @@ export class UserDataService {
   public getIDsOfGamesOwned(): Observable<number[]>
   {
     const url = `${this.baseUrl}/owned-game-ids`;
-    return this.http.get<number[]>(url).pipe(tap(_ => console.log('fetched IDs')),
+    return this.http.get<number[]>(url).pipe(
+      tap(_ => console.log('fetched IDs')),
       catchError(this.handleError<number[]>('getIDsOfGamesOwned')));
   }
 
@@ -53,7 +54,7 @@ export class UserDataService {
       achiever: item.Achiever,
       explorer: item.Explorer,
       killer: item.Killer,
-      socializer: item.Socializer
+      socializer: item.Socializer,
     };
   }
 

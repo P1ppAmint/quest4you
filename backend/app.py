@@ -10,24 +10,34 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route('/api/data')
-def get_data():
-    data = {
-      'title': 'Quest4You',
-      'message': 'Test!!!!'
-    }
-
-    return jsonify(data)
-
-
-@app.route('/api/bartles_questions')
-# returns the question dataset
+@app.route('/api/questions')
 def get_questions():
-    question_dataset = {}
+    questions = []
+    questions_dataset = {}
+    answers_dataset = {}
+    with open('./data/bartles-questions.json') as question_file:
+        questions_dataset = json.load(question_file)
+        with open('./data/users.json') as answers_file:
+            answers_dataset = json.load(answers_file)["Beater"]["QuizAnswers"]
+    for idx, question in enumerate(questions_dataset):
+        questions.append({
+          "QuestionId": question["QuestionId"],
+          "Question": question["Question"],
+          "Answer1": question["Answer1"],
+          "Answer2": question["Answer2"],
+          "Outcome1": question["Outcome1"],
+          "Outcome2": question["Outcome2"],
+          "AnswerGiven": answers_dataset[str(idx)]
+        })
+    print(f'Created Question Dataset: {questions}')
+    return jsonify(questions)
+
+
+@app.route('/api/questions/length')
+def get_questions_length():
     with open('./data/bartles-questions.json') as file:
         questions_dataset = json.load(file)
-    # return jsonify(questions_dataset)
-    return questions_dataset
+    return jsonify(len(questions_dataset))
 
 
 @app.route('/api/users/test')
@@ -47,8 +57,17 @@ def get_player_type():
 @app.route('/api/users/test/has-answered-quiz')
 def has_answered_quiz():
     with open('./data/users.json') as file:
-        user_data = json.load(file)["Beater"]["HasAnsweredQuiz"]
-    return jsonify(user_data)
+        quiz_answers = json.load(file)["Beater"]["QuizAnswers"]
+
+    print(quiz_answers)
+    result = False
+    print(result)
+    for answer in quiz_answers.values():
+        if answer:
+            print(f'This: {answer}')
+            result = True
+
+    return jsonify(result)
 
 
 @app.route('/api/users/test/answers')
@@ -56,13 +75,13 @@ def get_user_answers():
     return get_user()["QuizAnswers"]
 
 
-@app.route('/api/users/test/final_answers', methods=['GET', 'POST'])
+@app.route('/api/users/test/answer_quiz', methods=['GET', 'POST'])
 def save_final_answers():
     data = request.json
     print('Final answers received in app.py:')
     print(data)
     # TODO add setting of "HasAnsweredQuiz" Field
-    #return jsonify(data)
+    return jsonify(data)
 
 
 @app.route('/api/users/test/owned-game-ids')
@@ -143,6 +162,8 @@ def accept_quest(game_id, quest_id):
     print(f'Accepting Quest with {quest_id} for game {game_id}')
     # TODO implement quest accepting behavior
     return
+
+# TODO Alex: add functionality to reset Answers in user.json for testing and showcase
 
 
 if __name__ == '__main__':

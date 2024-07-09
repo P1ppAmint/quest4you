@@ -1,10 +1,10 @@
 @if (gameData) {
   <h1>{{gameData.title}}</h1>
   <button>Play</button>
-  @if (vanillaQuests) {
+  @if (vanillaQuests != undefined && vanillaQuests.length > 0) {
     <app-quest-display title="Basic Quests" [quests]="vanillaQuests"></app-quest-display>
   }
-  @if (acceptedQuests) {
+  @if (acceptedQuests != undefined && acceptedQuests.length > 0) {
     <app-quest-display title="Accepted Quests" [quests]="acceptedQuests"></app-quest-display>
   }
 

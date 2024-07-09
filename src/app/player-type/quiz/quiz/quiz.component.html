@@ -4,7 +4,6 @@
       <h1>{{currentQuizQuestion.question}}</h1>
       <section class="options">
         <button (click)="onAnswer(currentQuizQuestion.option1.value)">{{currentQuizQuestion.option1.claim}}</button>
-<!--        <button (click)="updateArray()">Big button</button>-->
         <button (click)="onAnswer(currentQuizQuestion.option2.value)">{{currentQuizQuestion.option2.claim}}</button>
       </section>
     </section>
@@ -37,6 +36,7 @@
       <p>E : {{result['+E']}}</p>
       <p>S : {{result['+S']}}</p>
       <p>K : {{result['+K']}}</p>
+      <button (click)="skipQuiz()">Skip Rest</button>
     </section>
   </section>
 } @loading (minimum 0.001s) {
