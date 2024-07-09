@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {QuestData} from "../quest-data/quest-data";
 
 @Component({
@@ -8,14 +8,19 @@ import {QuestData} from "../quest-data/quest-data";
   template: `
     @if (questData)
     {
-      <div class="quest-container">
-        <div class="quest-icon {{questData.questType}} {{questData.questStatus}}"></div>
-        <p class="quest-name">{{questData.questName}}</p>
-      </div>
-
+      <button (click)="onClick()">
+        <div class="quest-container">
+          <div class="quest-icon {{questData.questType}} {{questData.questStatus}}"></div>
+          <p class="quest-name">{{questData.questName}}</p>
+        </div>
+      </button>
     }
   `,
   styles: `
+    button {
+      background: none;
+      border: none;
+    }
     .quest-icon {
       height: 80pt;
       width: 80pt;
@@ -53,6 +58,11 @@ import {QuestData} from "../quest-data/quest-data";
 })
 export class QuestCardComponent {
   @Input({required: true}) questData : QuestData | undefined;
+  @Output() onQuestClickEvent = new EventEmitter<QuestData>();
+
+  onClick(){
+    this.onQuestClickEvent.emit(this.questData)
+  }
 }
 
 

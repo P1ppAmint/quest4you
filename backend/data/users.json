@@ -4,7 +4,32 @@
       {
         "Id": 0,
         "AcceptedQuests": [],
-        "GeneratedQuests": []
+        "GeneratedQuests": [
+          {
+            "QuestId": 1,
+            "QuestName": "Archer",
+            "QuestDescription": "Kill a creeper with arrows",
+            "QuestStatus": "completed"
+          },
+          {
+            "QuestId": 2,
+            "QuestName": "Benchmaking",
+            "QuestDescription": "Craft a workbench with four blocks of wooden planks",
+            "QuestStatus": "completed"
+          },
+          {
+            "QuestId": 3,
+            "QuestName": "Body Guard",
+            "QuestDescription": "Create an Iron Golem",
+            "QuestStatus": "ongoing"
+          },
+          {
+            "QuestId": 4,
+            "QuestName": "Camouflage",
+            "QuestDescription": "Kill a mob while wearing the same type of mob head",
+            "QuestStatus": "ongoing"
+          }
+        ]
       },{
         "Id": 1,
         "AcceptedQuests": [],

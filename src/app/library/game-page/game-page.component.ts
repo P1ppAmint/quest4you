@@ -5,6 +5,8 @@ import {QuestData} from "../../shared-components/quest-data/quest-data";
 import {QuestDataService} from "../../shared-components/quest-data/quest-data.service";
 import {GameDataService} from "../../shared-components/game-data/game-data.service";
 import {GameData} from "../../shared-components/game-data/game-data";
+import {MatDialog} from "@angular/material/dialog";
+import {QuestBoardComponent} from "../quest-board/quest-board.component";
 
 @Component({
   selector: 'app-game-page',
@@ -17,14 +19,13 @@ import {GameData} from "../../shared-components/game-data/game-data";
 })
 export class GamePageComponent implements OnInit{
   route: ActivatedRoute = inject(ActivatedRoute);
-  questsToDisplay : QuestData[] = [];
   gameData : GameData | undefined;
   vanillaQuests : QuestData[] | undefined;
   acceptedQuests : QuestData[] | undefined;
   gameId : number = 0;
 
 
-  constructor(private gameDataService : GameDataService, private questDataService : QuestDataService) {
+  constructor(private gameDataService : GameDataService, private questDataService : QuestDataService, public dialog : MatDialog) {
   }
 
   ngOnInit() {
@@ -43,9 +44,15 @@ export class GamePageComponent implements OnInit{
   generateQuests(): void {
     console.log("Frontend trigger quest generation")
     this.questDataService.generateQuests(this.gameId);
-
-    // TODO implement
     // open QuestBoard
+    this.openDialog()
+  }
+
+  openDialog(): void{
+    this.dialog.open(QuestBoardComponent, {
+      data : { gameId: this.gameId },
+      width: '600px'
+    });
   }
 
 }

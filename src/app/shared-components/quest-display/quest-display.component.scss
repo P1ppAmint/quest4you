@@ -1,5 +1,7 @@
 .card-wrapper{
   display: flex;
   flex-wrap: wrap;
+  flex-flow: row;
+  width: 100%;
   gap: 12pt;
 }

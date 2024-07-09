@@ -1,14 +1,17 @@
 @if (gameData) {
   <h1>{{gameData.title}}</h1>
-  <button>Play</button>
-  @if (vanillaQuests != undefined && vanillaQuests.length > 0) {
-    <app-quest-display title="Basic Quests" [quests]="vanillaQuests"></app-quest-display>
-  }
-  @if (acceptedQuests != undefined && acceptedQuests.length > 0) {
-    <app-quest-display title="Accepted Quests" [quests]="acceptedQuests"></app-quest-display>
-  }
+  <section class="game-page-wrapper">
+    <button>Play</button>
+    @if (vanillaQuests != undefined && vanillaQuests.length > 0) {
+      <app-quest-display title="Basic Quests" [quests]="vanillaQuests"></app-quest-display>
+    }
+    @if (acceptedQuests != undefined && acceptedQuests.length > 0) {
+      <app-quest-display title="Accepted Quests" [quests]="acceptedQuests"></app-quest-display>
+    }
 
-  <button (click)="generateQuests()">Generate Quests</button>
+    <button (click)="generateQuests()">Generate Quests</button>
+  </section>
+
 }
 
 

@@ -1,4 +1,6 @@
-<h2>{{title}}</h2>
+@if (title){
+  <h2>{{title}}</h2>
+}
 <section class="card-wrapper">
   @for (quest of quests; track $index){
     <app-quest-card [questData]="quest"></app-quest-card>

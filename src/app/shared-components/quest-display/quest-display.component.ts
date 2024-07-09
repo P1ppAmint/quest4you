@@ -13,5 +13,5 @@ import {QuestData} from "../quest-data/quest-data";
 })
 export class QuestDisplayComponent {
   @Input({required: true}) quests : QuestData[] = [];
-  @Input({required: true}) title : string = '';
+  @Input() title : string = '';
 }

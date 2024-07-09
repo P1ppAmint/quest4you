@@ -1,0 +1,25 @@
+h1 {
+  text-decoration: underline;
+}
+
+.game-page-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 8pt;
+}
+
+button{
+  background: #FFB951;
+
+  height: 50pt;
+  min-width: 160pt;
+  width: fit-content;
+
+  border-radius: 8pt;
+  border: none;
+
+  font-weight: bold;
+  font-size: 16px;
+  color: #1F1F1F;
+
+}
