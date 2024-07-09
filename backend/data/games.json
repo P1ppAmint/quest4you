@@ -2,13 +2,13 @@
   {
     "GameId": 0,
     "Title": "Minecraft",
-    "OriginalQuests": 
+    "OriginalQuests":
     [
       {
-      "QuestId": 0,
-      "QuestName": "Bake Bread",
-      "QuestDescription": "Turn wheat into bread",
-      "QuestStatus": "completed"
+        "QuestId": 0,
+        "QuestName": "Bake Bread",
+        "QuestDescription": "Turn wheat into bread",
+        "QuestStatus": "completed"
       },
       {
         "QuestId": 1,
@@ -39,414 +39,414 @@
   {
     "GameId": 1,
     "Title": "Terraria",
-    "OriginalQuests": 
+    "OriginalQuests":
     [
       {
         "QuestId": 0,
         "QuestName": "Terraria Expert",
         "QuestDescription": "Complete all the quests from the guide",
         "QuestStatus": "completed"
-        },
-        {
-          "QuestId": 1,
-          "QuestName": "Rock Bottom",
-          "QuestDescription": "Reach the deepest of depths",
-          "QuestStatus": "completed"
-        },
-        {
-          "QuestId": 2,
-          "QuestName": "Slayer of Worlds",
-          "QuestDescription": "Defeat every boss in Terraria",
-          "QuestStatus": "ongoing"
-        },
-        {
-          "QuestId": 3,
-          "QuestName": "Topped Off",
-          "QuestDescription": "Attain maximum life and mana possible without accessories or buffs",
-          "QuestStatus": "ongoing"
-        },
-        {
-          "QuestId": 4,
-          "QuestName": "Corruptible",
-          "QuestDescription": "Allow your world to become Corrupted",
-          "QuestStatus": "ongoing"
-        }
+      },
+      {
+        "QuestId": 1,
+        "QuestName": "Rock Bottom",
+        "QuestDescription": "Reach the deepest of depths",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 2,
+        "QuestName": "Slayer of Worlds",
+        "QuestDescription": "Defeat every boss in Terraria",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 3,
+        "QuestName": "Topped Off",
+        "QuestDescription": "Attain maximum life and mana possible without accessories or buffs",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 4,
+        "QuestName": "Corruptible",
+        "QuestDescription": "Allow your world to become Corrupted",
+        "QuestStatus": "ongoing"
+      }
     ]
   },
   {
     "GameId": 2,
     "Title": "The Elder Scrolls V Skyrim",
-    "OriginalQuests": 
+    "OriginalQuests":
     [
       {
         "QuestId": 0,
         "QuestName": "Take Up Arms",
         "QuestDescription": "Join the Companions",
         "QuestStatus": "completed"
-        },
-        {
-          "QuestId": 1,
-          "QuestName": "Blood Oath",
-          "QuestDescription": "Become a member of the Circle",
-          "QuestStatus": "completed"
-        },
-        {
-          "QuestId": 2,
-          "QuestName": "The Eye of Magnus",
-          "QuestDescription": "Complete 'The Eye of Magnus'",
-          "QuestStatus": "completed"
-        },
-        {
-          "QuestId": 3,
-          "QuestName": "Taking Care of Business",
-          "QuestDescription": "Join the Thieves Guild",
-          "QuestStatus": "ongoing"
-        },
-        {
-          "QuestId": 4,
-          "QuestName": "With Friends Like These...",
-          "QuestDescription": "Join the Dark Brotherhood",
-          "QuestStatus": "ongoing"
-        }
+      },
+      {
+        "QuestId": 1,
+        "QuestName": "Blood Oath",
+        "QuestDescription": "Become a member of the Circle",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 2,
+        "QuestName": "The Eye of Magnus",
+        "QuestDescription": "Complete 'The Eye of Magnus'",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 3,
+        "QuestName": "Taking Care of Business",
+        "QuestDescription": "Join the Thieves Guild",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 4,
+        "QuestName": "With Friends Like These...",
+        "QuestDescription": "Join the Dark Brotherhood",
+        "QuestStatus": "ongoing"
+      }
     ]
   },
   {
     "GameId": 3,
     "Title": "The Witcher 3: Wild Hunt",
-    "OriginalQuests": 
+    "OriginalQuests":
     [
       {
-      "QuestId": 0,
+        "QuestId": 0,
         "QuestName": "Armed and Dangerous",
         "QuestDescription": "Find and equip all the elements of one set of witcher gear",
         "QuestStatus": "ongoing"
-        },
-        {
-          "QuestId": 1,
-          "QuestName": "Bombardier",
-          "QuestDescription": "Collect the formulae for 6 different bomb types",
-          "QuestStatus": "ongoing"
-        },
-        {
-          "QuestId": 2,
-          "QuestName": "Bookworm",
-          "QuestDescription": "Read 30 books, journals or other documents",
-          "QuestStatus": "ongoing"
-        },
-        {
-          "QuestId": 3,
-          "QuestName": "Brawler",
-          "QuestDescription": "Defeat Olaf, the Skellige champion of unarmed combat",
-          "QuestStatus": "ongoing"
-        },
-        {
-          "QuestId": 4,
-          "QuestName": "Butcher of Blaviken",
-          "QuestDescription": "Kill at least 5 opponents in under 10 seconds",
-          "QuestStatus": "ongoing"
-        }
+      },
+      {
+        "QuestId": 1,
+        "QuestName": "Bombardier",
+        "QuestDescription": "Collect the formulae for 6 different bomb types",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 2,
+        "QuestName": "Bookworm",
+        "QuestDescription": "Read 30 books, journals or other documents",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 3,
+        "QuestName": "Brawler",
+        "QuestDescription": "Defeat Olaf, the Skellige champion of unarmed combat",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 4,
+        "QuestName": "Butcher of Blaviken",
+        "QuestDescription": "Kill at least 5 opponents in under 10 seconds",
+        "QuestStatus": "ongoing"
+      }
     ]
   },
   {
     "GameId": 4,
     "Title": "The Binding of Isaac: Rebirth",
-    "OriginalQuests": 
+    "OriginalQuests":
     [
       {
         "QuestId": 0,
-          "QuestName": "The Womb",
-          "QuestDescription": "Kill Mom",
-          "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 1,
-            "QuestName": "Samson",
-            "QuestDescription": "Beat 2 levels in a row without taking damage",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 2,
-            "QuestName": "Transcendence",
-            "QuestDescription": "Kill Mom's Heart 3 times",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 3,
-            "QuestName": "Magdalene",
-            "QuestDescription": "Have 7 or more max red hearts at one time",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 4,
-            "QuestName": "The Lost",
-            "QuestDescription": "Finish the game's final secret",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 5,
-            "QuestName": "Isaac's Heart",
-            "QuestDescription": "Kill Isaac with The Lost",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 6,
-            "QuestName": "The Guillotine",
-            "QuestDescription": "Kill Isaac with Judas",
-            "QuestStatus": "completed"
-          }
+        "QuestName": "The Womb",
+        "QuestDescription": "Kill Mom",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 1,
+        "QuestName": "Samson",
+        "QuestDescription": "Beat 2 levels in a row without taking damage",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 2,
+        "QuestName": "Transcendence",
+        "QuestDescription": "Kill Mom's Heart 3 times",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 3,
+        "QuestName": "Magdalene",
+        "QuestDescription": "Have 7 or more max red hearts at one time",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 4,
+        "QuestName": "The Lost",
+        "QuestDescription": "Finish the game's final secret",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 5,
+        "QuestName": "Isaac's Heart",
+        "QuestDescription": "Kill Isaac with The Lost",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 6,
+        "QuestName": "The Guillotine",
+        "QuestDescription": "Kill Isaac with Judas",
+        "QuestStatus": "completed"
+      }
     ]
   },
   {
     "GameId": 5,
     "Title": "Brotato",
-    "OriginalQuests": 
+    "OriginalQuests":
     [
       {
         "QuestId": 0,
-          "QuestName": "Survivor 1",
-          "QuestDescription": "Kill 300 enemies",
-          "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 1,
-            "QuestName": "Gatherer 1",
-            "QuestDescription": "Collect 300 materials",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 2,
-            "QuestName": "Agriculture",
-            "QuestDescription": "Reach 200 Harvesting",
-            "QuestStatus": "ongoing"
-          },
-          {
-            "QuestId": 3,
-            "QuestName": "Builder",
-            "QuestDescription": "Get 5 turrets on the map simultaneously",
-            "QuestStatus": "ongoing"
-          },
-          {
-            "QuestId": 4,
-            "QuestName": "Lumberjack",
-            "QuestDescription": "Kill 50 trees",
-            "QuestStatus": "ongoing"
-          }
+        "QuestName": "Survivor 1",
+        "QuestDescription": "Kill 300 enemies",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 1,
+        "QuestName": "Gatherer 1",
+        "QuestDescription": "Collect 300 materials",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 2,
+        "QuestName": "Agriculture",
+        "QuestDescription": "Reach 200 Harvesting",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 3,
+        "QuestName": "Builder",
+        "QuestDescription": "Get 5 turrets on the map simultaneously",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 4,
+        "QuestName": "Lumberjack",
+        "QuestDescription": "Kill 50 trees",
+        "QuestStatus": "ongoing"
+      }
     ]
   },
   {
     "GameId": 6,
     "Title": "League of Legends",
-    "OriginalQuests": 
+    "OriginalQuests":
     [
       {
         "QuestId": 0,
-          "QuestName": "The Jukes!",
-          "QuestDescription": "Dodge five skillshots within eight seconds",
-          "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 1,
-            "QuestName": "TY for Leash",
-            "QuestDescription": "Steal an Epic Monster without Smite",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 2,
-            "QuestName": "Not Even a Scratch",
-            "QuestDescription": "Take 10k damage in a fight and survive",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 3,
-            "QuestName": "Prodigy",
-            "QuestDescription": "Become Legendary within 15 minutes",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 4,
-            "QuestName": "Dragon On Too Long",
-            "QuestDescription": "Take down first dragon before eight minutes",
-            "QuestStatus": "completed"
-          }
+        "QuestName": "The Jukes!",
+        "QuestDescription": "Dodge five skillshots within eight seconds",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 1,
+        "QuestName": "TY for Leash",
+        "QuestDescription": "Steal an Epic Monster without Smite",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 2,
+        "QuestName": "Not Even a Scratch",
+        "QuestDescription": "Take 10k damage in a fight and survive",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 3,
+        "QuestName": "Prodigy",
+        "QuestDescription": "Become Legendary within 15 minutes",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 4,
+        "QuestName": "Dragon On Too Long",
+        "QuestDescription": "Take down first dragon before eight minutes",
+        "QuestStatus": "completed"
+      }
     ]
   },
   {
     "GameId": 7,
     "Title": "Starfield",
-    "OriginalQuests": 
+    "OriginalQuests":
     [
       {
         "QuestId": 0,
-          "QuestName": "One Small Step",
-          "QuestDescription": "Join Constellation",
-          "QuestStatus": "ongoing"
-          },
-          {
-            "QuestId": 1,
-            "QuestName": "All That Money Can Buy",
-            "QuestDescription": "Complete 'All That Money Can Buy'",
-            "QuestStatus": "ongoing"
-          },
-          {
-            "QuestId": 2,
-            "QuestName": "In Their Footsteps",
-            "QuestDescription": "Complete 'In Their Footsteps'",
-            "QuestStatus": "ongoing"
-          },
-          {
-            "QuestId": 3,
-            "QuestName": "Unearthed",
-            "QuestDescription": "Complete 'Unearthed'",
-            "QuestStatus": "ongoing"
-          }
+        "QuestName": "One Small Step",
+        "QuestDescription": "Join Constellation",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 1,
+        "QuestName": "All That Money Can Buy",
+        "QuestDescription": "Complete 'All That Money Can Buy'",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 2,
+        "QuestName": "In Their Footsteps",
+        "QuestDescription": "Complete 'In Their Footsteps'",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 3,
+        "QuestName": "Unearthed",
+        "QuestDescription": "Complete 'Unearthed'",
+        "QuestStatus": "ongoing"
+      }
     ]
   },
   {
     "GameId": 8,
     "Title": "Monster Hunter: World",
-    "OriginalQuests": 
+    "OriginalQuests":
     [
       {
         "QuestId": 0,
-          "QuestName": "The Franchise Hunter",
-          "QuestDescription": "Complete 50 investigations",
-          "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 1,
-            "QuestName": "Step into the Arena",
-            "QuestDescription": "Complete your first arena quest",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 2,
-            "QuestName": "Bourgeois Hunter",
-            "QuestDescription": "Possess 1,000,000 zenny",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 3,
-            "QuestName": "Power is Everything",
-            "QuestDescription": "Obtain five highly rare weapons",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 4,
-            "QuestName": "Monster Ph.D.",
-            "QuestDescription": "Max out the research level (up to high rank) for many monsters",
-            "QuestStatus": "ongoing"
-          }
+        "QuestName": "The Franchise Hunter",
+        "QuestDescription": "Complete 50 investigations",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 1,
+        "QuestName": "Step into the Arena",
+        "QuestDescription": "Complete your first arena quest",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 2,
+        "QuestName": "Bourgeois Hunter",
+        "QuestDescription": "Possess 1,000,000 zenny",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 3,
+        "QuestName": "Power is Everything",
+        "QuestDescription": "Obtain five highly rare weapons",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 4,
+        "QuestName": "Monster Ph.D.",
+        "QuestDescription": "Max out the research level (up to high rank) for many monsters",
+        "QuestStatus": "ongoing"
+      }
     ]
   },
   {
     "GameId": 9,
     "Title": "Overwatch 2",
-    "OriginalQuests": 
+    "OriginalQuests":
     [
       {
         "QuestId": 0,
-          "QuestName": "Centenary",
-          "QuestDescription": "Win 100 games in Quick or Competitive Play",
-          "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 1,
-            "QuestName": "The Friend Zone",
-            "QuestDescription": "Play a Quick or Competitive Play game in a group with a friend",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 2,
-            "QuestName": "Die Die Die... Die",
-            "QuestDescription": "Kill 4 enemies with a single use of Reaper's Death Blossom in Quick or Competitive Play",
-            "QuestStatus": "ongoing"
-          },
-          {
-            "QuestId": 3,
-            "QuestName": "The Path Is Closed",
-            "QuestDescription": "Destroy 3 of Symmetra's Teleporters in a single Quick or Competitive Play game",
-            "QuestStatus": "ongoing"
-          },
-          {
-            "QuestId": 4,
-            "QuestName": "Decked Out",
-            "QuestDescription": "Collect 50 unlocks for a single hero",
-            "QuestStatus": "ongoing"
-          }
+        "QuestName": "Centenary",
+        "QuestDescription": "Win 100 games in Quick or Competitive Play",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 1,
+        "QuestName": "The Friend Zone",
+        "QuestDescription": "Play a Quick or Competitive Play game in a group with a friend",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 2,
+        "QuestName": "Die Die Die... Die",
+        "QuestDescription": "Kill 4 enemies with a single use of Reaper's Death Blossom in Quick or Competitive Play",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 3,
+        "QuestName": "The Path Is Closed",
+        "QuestDescription": "Destroy 3 of Symmetra's Teleporters in a single Quick or Competitive Play game",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 4,
+        "QuestName": "Decked Out",
+        "QuestDescription": "Collect 50 unlocks for a single hero",
+        "QuestStatus": "ongoing"
+      }
     ]
   },
   {
     "GameId": 10,
     "Title": "Horizon: Forbidden West",
-    "OriginalQuests": 
+    "OriginalQuests":
     [
       {
         "QuestId": 0,
-          "QuestName": "Reached the Daunt",
-          "QuestDescription": "Arrived at the Daunt seeking passage into the Forbidden West",
-          "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 1,
-            "QuestName": "Secured Passage to the Embassy",
-            "QuestDescription": "Cleared the way to the Embassy and reopened the Daunt",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 2,
-            "QuestName": "Recovered AETHER",
-            "QuestDescription": "Defended the Kulrut and recovered AETHER",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 3,
-            "QuestName": "Discovered Faro's Fate",
-            "QuestDescription": "Survived Thebes and befriended the Quen",
-            "QuestStatus": "ongoing"
-          },
-          {
-            "QuestId": 4,
-            "QuestName": "Reached Level 50",
-            "QuestDescription": "Reached player level 50",
-            "QuestStatus": "ongoing"
-          }
+        "QuestName": "Reached the Daunt",
+        "QuestDescription": "Arrived at the Daunt seeking passage into the Forbidden West",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 1,
+        "QuestName": "Secured Passage to the Embassy",
+        "QuestDescription": "Cleared the way to the Embassy and reopened the Daunt",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 2,
+        "QuestName": "Recovered AETHER",
+        "QuestDescription": "Defended the Kulrut and recovered AETHER",
+        "QuestStatus": "completed"
+      },
+      {
+        "QuestId": 3,
+        "QuestName": "Discovered Faro's Fate",
+        "QuestDescription": "Survived Thebes and befriended the Quen",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 4,
+        "QuestName": "Reached Level 50",
+        "QuestDescription": "Reached player level 50",
+        "QuestStatus": "ongoing"
+      }
     ]
   },
   {
     "GameId": 11,
     "Title": "Fallout 4",
-    "OriginalQuests": 
+    "OriginalQuests":
     [
       {
         "QuestId": 0,
-          "QuestName": "The First Step",
-          "QuestDescription": "Join the Minutemen",
-          "QuestStatus": "ongoing"
-          },
-          {
-            "QuestId": 1,
-            "QuestName": "Taking Independence",
-            "QuestDescription": "Complete 'Taking Independence'",
-            "QuestStatus": "ongoing"
-          },
-          {
-            "QuestId": 2,
-            "QuestName": "Semper Invicta",
-            "QuestDescription": "Join the Brotherhood of Steel",
-            "QuestStatus": "ongoing"
-          },
-          {
-            "QuestId": 3,
-            "QuestName": "Tradecraft",
-            "QuestDescription": "Join the Railroad",
-            "QuestStatus": "ongoing"
-          },
-          {
-            "QuestId": 4,
-            "QuestName": "Benevolent Leader",
-            "QuestDescription": "Reach Maximum Happiness in a Large Settlement",
-            "QuestStatus": "ongoing"
-          }
+        "QuestName": "The First Step",
+        "QuestDescription": "Join the Minutemen",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 1,
+        "QuestName": "Taking Independence",
+        "QuestDescription": "Complete 'Taking Independence'",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 2,
+        "QuestName": "Semper Invicta",
+        "QuestDescription": "Join the Brotherhood of Steel",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 3,
+        "QuestName": "Tradecraft",
+        "QuestDescription": "Join the Railroad",
+        "QuestStatus": "ongoing"
+      },
+      {
+        "QuestId": 4,
+        "QuestName": "Benevolent Leader",
+        "QuestDescription": "Reach Maximum Happiness in a Large Settlement",
+        "QuestStatus": "ongoing"
+      }
     ]
   }
 ]
