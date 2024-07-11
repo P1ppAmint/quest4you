@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import {Component, inject, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { ActivatedRoute} from "@angular/router";
 import {QuestDisplayComponent} from "../../shared-components/quest-display/quest-display.component";
 import {QuestData} from "../../shared-components/quest-data/quest-data";
@@ -17,7 +17,7 @@ import {QuestBoardComponent} from "../quest-board/quest-board.component";
   templateUrl: './game-page.component.html',
   styleUrl: './game-page.component.scss'
 })
-export class GamePageComponent implements OnInit{
+export class GamePageComponent implements OnInit, OnChanges{
   route: ActivatedRoute = inject(ActivatedRoute);
   gameData : GameData | undefined;
   vanillaQuests : QuestData[] | undefined;
@@ -26,6 +26,10 @@ export class GamePageComponent implements OnInit{
 
 
   constructor(private gameDataService : GameDataService, private questDataService : QuestDataService, public dialog : MatDialog) {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.getGameData();
   }
 
   ngOnInit() {
@@ -37,9 +41,13 @@ export class GamePageComponent implements OnInit{
     this.gameId = gameId;
     this.gameDataService.getGameData(gameId).subscribe(gameData => this.gameData = gameData);
     this.questDataService.getVanillaQuests(gameId).subscribe(vanillaQuests => this.vanillaQuests = vanillaQuests)
+    // this.questDataService.getGeneratedQuests(gameId).subscribe(acceptedQuests => this.acceptedQuests = acceptedQuests)
     this.questDataService.getAcceptedQuests(gameId).subscribe(acceptedQuests => this.acceptedQuests = acceptedQuests)
-
+    // TODO revert to acceptedQuest
   }
+
+  // implement reload functionality here, that stuff gets updated on load :]
+  // atm the achievements are displayed incorrectly, so it'd be nice if we fix that
 
   generateQuests(): void {
     console.log("Frontend trigger quest generation")

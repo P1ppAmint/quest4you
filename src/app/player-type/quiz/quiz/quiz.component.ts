@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { NgOptimizedImage } from "@angular/common";
 import {QuizQuestionService} from "../quiz-question.service";
 import {QuizQuestionData} from "../quiz-question-data";
@@ -13,7 +13,7 @@ import {Location} from "@angular/common";
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss'
 })
-export class QuizComponent implements OnInit{
+export class QuizComponent implements OnInit, OnChanges{
   progressbarIndicatorWindow : number = 4;
 
   quizQuestions : QuizQuestionData[] = [];
@@ -29,6 +29,10 @@ export class QuizComponent implements OnInit{
   constructor(private quizQuestionService: QuizQuestionService, private location : Location) {}
 
   ngOnInit(): void {
+    this.getData()
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
     this.getData()
   }
 

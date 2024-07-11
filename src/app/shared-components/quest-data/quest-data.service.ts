@@ -10,6 +10,7 @@ import {catchError, map, tap} from "rxjs/operators";
 export class QuestDataService {
 
   private  baseUrl = 'http://127.0.0.1:5000/api/users/test/';
+  public quests : any;
 
   constructor(private http: HttpClient) {
   }
@@ -23,6 +24,8 @@ export class QuestDataService {
       catchError(this.handleError<QuestData[]>(`getGeneratedQuests id=${gameId}`))
     );
   }
+  // look into issues here and try to establish connections between backend and frontend
+
 
   public getAcceptedQuests(gameId: number): Observable<QuestData[]> {
     const url = `${this.baseUrl}${gameId}/accepted-quests`;
@@ -59,7 +62,8 @@ export class QuestDataService {
   //Set Data: AcceptedQuest
   public acceptQuest(gameId : number, questId : number): void{
     const url = `${this.baseUrl}${gameId}/accept-quest/${questId}`;
-    this.http.get(url);
+    let accepted_quest;
+    this.http.get(url).subscribe(res => accepted_quest = res); // INSERT SUBSCRIBER so get request is caught by app.py C:
   }
 
 
@@ -67,7 +71,7 @@ export class QuestDataService {
   public generateQuests(gameId : number): void {
     console.log("Quest Service: Received generation request")
     const url = `${this.baseUrl}${gameId}/generate-quests`;
-    this.http.get(url);
+    this.http.get(url).subscribe(res => this.quests = res);
   }
 
 

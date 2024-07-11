@@ -1,4 +1,4 @@
-import {Component, OnInit, Inject} from '@angular/core';
+import {Component, OnInit, Inject, OnChanges, SimpleChanges} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 import {QuestData, QuestType} from "../../shared-components/quest-data/quest-data";
 import {QuestDataService} from "../../shared-components/quest-data/quest-data.service";
@@ -7,6 +7,7 @@ import {MatDialog, MatDialogActions, MatDialogClose, MatDialogTitle} from "@angu
 import {MatButton} from "@angular/material/button";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {QuestCardComponent} from "../../shared-components/quest-card/quest-card.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quest-board',
@@ -118,16 +119,23 @@ import {QuestCardComponent} from "../../shared-components/quest-card/quest-card.
   }
   `
 })
-export class QuestBoardComponent implements OnInit{
+export class QuestBoardComponent implements OnInit, OnChanges{
   public generatedQuests : QuestData[] | undefined;
   public activeScreen : number = 0;
   public selectedQuest : QuestData | undefined;
 
-  constructor(private questDataService : QuestDataService, @Inject(MAT_DIALOG_DATA) public data : {gameId : number}) {
+  constructor(private questDataService : QuestDataService, @Inject(MAT_DIALOG_DATA) public data : {gameId : number}, private router: Router) {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.getData()
+    this.reloadComponent(true)
+    // location.reload()
   }
 
   ngOnInit() {
-    this.getData()
+    this.getData();
+    this.reloadComponent(true)
   }
 
   private getData(){
@@ -136,6 +144,7 @@ export class QuestBoardComponent implements OnInit{
   }
 
   openQuestSelection(quest : QuestData){
+    this.questDataService.generateQuests(this.data.gameId);
     this.activeScreen = 1;
     this.selectedQuest = quest;
     console.log(`show quest screen ${quest.questName}`)
@@ -143,6 +152,7 @@ export class QuestBoardComponent implements OnInit{
 
   closeQuestSelection() {
     this.activeScreen = 0;
+    this.getData()
     console.log('hide quest screen')
   }
 
@@ -150,11 +160,24 @@ export class QuestBoardComponent implements OnInit{
     if(this.selectedQuest){
       this.questDataService.acceptQuest(this.data.gameId, this.selectedQuest.questId);
     }
+    location.reload()
     this.activeScreen = 0;
   }
 
   regenerateQuest() {
     this.questDataService.generateQuests(this.data.gameId);
+    this.reloadComponent(true)
+  }
+
+  reloadComponent(self:boolean,urlToNavigateTo ?:string){
+    //skipLocationChange:true means dont update the url to / when navigating
+    console.log("Current route I am on:",this.router.url);
+    const url=self ? this.router.url :urlToNavigateTo;
+    this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>{
+      this.router.navigate([`/${url}`]).then(()=>{
+        console.log(`After navigation I am on:${this.router.url}`)
+      })
+    })
   }
 
 }

@@ -8,5 +8,5 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(), provideHttpClient(withFetch()), provideAnimationsAsync(), provideCharts(withDefaultRegisterables())]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(), provideHttpClient(withFetch()), provideAnimationsAsync(), provideCharts(withDefaultRegisterables()), provideCharts(withDefaultRegisterables())]
 };

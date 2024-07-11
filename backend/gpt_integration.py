@@ -1,3 +1,5 @@
+import json
+
 from openai import OpenAI
 import pandas as pd
 
@@ -13,12 +15,29 @@ player_type_profile = {
   'Achiever': 0
 }
 
-main_player_type = ''
+achievement_placeholder = {
+  # "QuestId": 0,
+  "QuestName": "Bake Bread",
+  "QuestDescription": "Turn wheat into bread",
+  # "QuestStatus": "completed"
+}
+
+game_data_dict = {
+  0: {
+    'Name': 'Minecraft',
+    'Object data path': 'data/mc_object_data.csv',
+    'Tag to ptype path': 'data/tag_to_ptype.csv'
+  }
+}
+
+global main_player_type
 
 minecraft_df = pd.read_csv('data/mc_object_data.csv')
 tag_to_ptype_df = pd.read_csv('data/tag_to_ptype.csv')
 
+
 def calculate_playertype(answer_dict):
+    global main_player_type
     for key in answer_dict:
         # print(f'Key: {key} + value: {answer_dict[key]}')
 
@@ -35,22 +54,30 @@ def calculate_playertype(answer_dict):
 
     print(player_type_profile)
 
-    player_type = max(player_type_profile, key=player_type_profile.get)
+    main_player_type = max(player_type_profile, key=player_type_profile.get)
 
-    print('Main player type: ', player_type)
+    print('Main player type: ', main_player_type)
 
+    # generate_quests(main_player_type, minecraft_df, tag_to_ptype_df)
+
+
+def generate_quests(player_type, game_id, user_id):
+
+    game_object_df = pd.read_csv(game_data_dict[game_id]['Object data path'])
+    tag_df = pd.read_csv(game_data_dict[game_id]['Tag to ptype path'])
     # filter tags by player type
-    appropriate_tags = tag_to_ptype_df[tag_to_ptype_df[player_type] >= 0.3]
-    print(appropriate_tags)
+    appropriate_tags = tag_df[tag_df[player_type] >= 0.3]
+
+    appropriate_tags_list = appropriate_tags['Tag']
+    print(appropriate_tags_list)
 
     # random selection of tags (or even go as far as just include tags above 50%)
-
-    filtered_df = minecraft_df.loc[minecraft_df['Objects'] == '']
+    filtered_df = game_object_df.loc[game_object_df['Objects'] == '']
 
     # filter out the tags of mc dataset
-    for tag in appropriate_tags['Tag']:
+    for tag in appropriate_tags_list:
         # print('Tag is: ',tag)
-        tag_df = minecraft_df.loc[(minecraft_df['Action'].str.contains(tag) | minecraft_df['Type precise'].str.contains(tag))]
+        tag_df = game_object_df.loc[(game_object_df['Action'].str.contains(tag) | game_object_df['Type precise'].str.contains(tag))]
         filtered_df = pd.concat([filtered_df, tag_df], ignore_index=True)
 
     filtered_df.drop_duplicates(inplace=True)
@@ -67,71 +94,139 @@ def calculate_playertype(answer_dict):
     # + think about feeding the verbs down to the prompt in a list as well! (try just extracting the matching tags as a list
     # or somehow filter the actual actions out of the extracted tags by playertype in any other way)
 
-    # note: quest stuff ist in quest-data.ts ! (sprich da gibts schon ne struktur, die einfach befüllt werden muss)
+    # TODO make sure the game can be read from the backend somehow to be able to have more than one game
+    current_game = 'Minecraft'
+
+    message_prompt = (f'With the attached dataframe, create 5 interesting achievement for the game {current_game} using '
+                      f'the tags provided in the tag_list {appropriate_tags_list} and the dataframe with objects_dataframe {filtered_prompt_df}.'
+                      f'Make sure that the tag in the tag_list is contained in the "Action" column in the objects_dataframe.'
+                      f'Output the achievement in a JSON !strictly! following the sample empty achievement format {achievement_placeholder}.'
+                      f'Where adequate, provide the achievement with a reasonable number requirement under the JSON field "QuestDescription" '
+                      f'(e.g. when creating a mining achievement, something'
+                      f'like "mine eight Dirt blocks" could be put in the "QuestDescription" field). Also make sure to use'
+                      f'double quotes in the json format')
+
+    gpt_answer = prompt_chatgpt(message_prompt)
+
+    # format string and insert achievements into JSON
+    stripped_gpt_answer = (gpt_answer.split("```")[1])[5:]
+    print(stripped_gpt_answer)
+
+    gpt_json = json.loads(stripped_gpt_answer)
+
+    print('JSON-ified answer: ', gpt_json)
+
+    print('First quest: ', gpt_json[0])
+
+    # add achievements to user achievement json
+
+    with open('data/users.json') as users_json_file:
+        users_json_data = json.load(users_json_file)
+
+    achievement_list = []
+    #TODO modify gpt_json to be a list of achievements with the correct format! (should have no issues going on from there)
+    # (basically we just add quest ids so we can track them I think)
+    for index in range(len(gpt_json)):
+        achievement_list.append({
+            "QuestId": index,
+            "QuestName": gpt_json[index]["QuestName"],
+            "QuestDescription": gpt_json[index]["QuestDescription"],
+            "QuestStatus": "ongoing"
+        })
+
+    users_json_data[user_id]["OwnedGames"][game_id]['GeneratedQuests'] = achievement_list
+    print('Personal JSON data: ', users_json_data)
+
+    with open('data/users.json', 'w') as writing_json_file:
+        json.dump(users_json_data, writing_json_file, indent=4)
+        # print('le mao')
+
+    with open('data/users.json') as file:
+        data = json.load(file)
+        print('Updated users JSON: ', data)
+
+    # Games loaded in successfully!!!
+
+    # TODO ensure creation of achievements on frontend
 
 
-def printData():
-  print('Received answers in gpt integration script: \n' + str(questions_data))
+# accepting function on 'Accept Quest' button
+def process_selected_quest(user_id, game_id, quest_id, accepted=True):
+    # find selected quest in user json data and change element
+    with open('data/users.json') as users_json_file:
+        users_json_data = json.load(users_json_file)
 
-# mc_mobs = minecraft_df[minecraft_df['Type'].isin(['mob'])]
-# explorer_tags = []
-#
-#
-# mc_stuff = minecraft_df.loc[(minecraft_df['Action'].isin(['kill']) & (minecraft_df['Type'].isin(['mob'])))]
-#
-# #fix mobs with more than one string in action (e.g. 'kill, breed') are not being picked up by selection
-#
-# # print(mc_mobs)
-# print(mc_stuff)
+    # obtain achievement from json file
+    selected_quest = users_json_data[user_id]["OwnedGames"][game_id]["GeneratedQuests"][quest_id]
+
+    print('Selected achievement: ', selected_quest)
+
+    if accepted:
+        # insert in accepted quests
+        # 1. extract current accepted quests as list
+        curr_accepted_quests = list(users_json_data[user_id]["OwnedGames"][game_id]["AcceptedQuests"])
+        print('Currently accepted quests then: ', curr_accepted_quests)
+        # 2. append new quest to list
+        selected_quest['QuestId'] = len(curr_accepted_quests)
+        curr_accepted_quests.append(selected_quest)
+        print('Currently accepted quests now: ', curr_accepted_quests)
+        # overwrite accepted quest field in JSON
+        users_json_data[user_id]["OwnedGames"][game_id]["AcceptedQuests"] = curr_accepted_quests
+
+    # TODO make sure ids are distributed correctly!! (might impact our quest display, then see if we can automatically update our quest stuff)
+
+    # delete from generated quests+
+    del users_json_data[user_id]["OwnedGames"][game_id]["GeneratedQuests"][quest_id]
+
+    # write changes back to user.json
+    with open('data/users.json', 'w') as writing_json_file:
+        json.dump(users_json_data, writing_json_file, indent=4)
+    # print('le mao')
+
+
+# think about joining functionality with decline quest option! (might have a bool that just triggers that we add the
+# achievement to the accepted quest list)
+
+
+def prompt_chatgpt(message):
+    client = OpenAI()
+
+    message_prompt = message
+
+    # should be the last part of the filtering process
+    completion = client.chat.completions.create(
+      model="gpt-3.5-turbo",
+      messages=[
+        {"role": "system", "content": "You are an intelligent assistant able to read in python dataframes and extract information from them in order to generate achievements for games."},
+        {"role": "user", "content": message_prompt}
+      ]
+    )
+
+    gpt_answer = completion.choices[0].message
+
+    # print(gpt_answer.content)
+    return gpt_answer.content
+
+# def printData():
+#   print('Received answers in gpt integration script: \n' + str(questions_data))
 
 ## prompt generation
-# client = OpenAI()
-#
-# game = 'Minecraft'
-# player_type = 'Killer'
-#
-# # message_prompt = f"Create a new achievement that a player could achieve while playing the game {game}. " \
-# #                  f"Orient the naming and description style to the one used in Steam's achievement system and orient " \
-# #                  f"the choice of the achievement in regards to the Bartel player type {player_type}. " \
-# #                  f"Also keep in mind not to recommend any achievement that is not possible to achieve in the game."
-#
-# message_prompt = f'With the attached dataframe, create an interesting achievement for the game Minecraft using the ' \
-#                  f'answer template "Verb + Random amount between 5 and 10 + random object form the column "Objects" in the dataframe" ' \
-#                  f'and generating a ' \
-#                  f'compelling short description of the achievement for the player type {player_type}. The dataframe ' \
-#                  f'follows:{mc_stuff}. Also respect the appropriate location of the item by watching the columns Traits ' \
-#                  f'in the table.'
-#
-# # should be the last part of the filtering process
-# completion = client.chat.completions.create(
-#   model="gpt-3.5-turbo",
-#   messages=[
-#     {"role": "system", "content": "You are an intelligent assistant able to read in python dataframes and extract information from them in order to generate achievements for games."},
-#     {"role": "user", "content": message_prompt}
-#   ]
-# )
-
-# print(completion.choices[0].message)
 
 
-
-
+### Other notes
 
 # gibts andere achievements wie easter eggs achievements (bzw wie können wir die prompts so gestalten/designen, dass sie interessant sind)
 # chatgpt api rsufinden und schauen, wie man die prompts übergibt? (schauen in welcher FOrm man das übertgitb + schauen, wie man daraus ein achievement generiert
 # z.B. liste erstellen, filtern und dann an chatgpt senden)
 
-# also basically erstmal chatgpt integrieren und schauen, ob man da ne prompt reinbekommt
-
-# kann placeholder nehmen für concept + tag (tag wird dann assoziiert mit) also rausfinden, welche datanstruktur am besten passt dafür bzw. wie wir das entgegennehmen
-# um daraus dann zu ermittlen welche wörter fir das prompt relevant sind
-
 # Können auch versuchen eher elaboriertere achievements als die schablone zu kreieren
 # kann schauen, was passiert wenn man random stuff reinpackt
 # kann tags hinzufügen zu dem stuff
 
-# schauen, wie man daten abspeichert
-
-# den dictionary lesen wir aus der JSON file aus!!
-
-# beim button 'Generieren' werden dann die daten aus dem JSON ausgelesen und ans backend gesendet
+# stuff to do
+# improve prompt
+# sobald frontend questboard da -> verschiebung generated -> accepted implementieren
+# PLACEHOLDER ENTFERNEN (z.B. sicherstellen, dass die answers aus dem playertypes test dann auch wirklich in die JSON
+# geschrieben wird! (zum Vergleich einfach den JSON modifying process von den achievements nehmen C:
+# also open, modify, write cc: ))
+# pipps stuff pullen und schauen, dass alles funktioniert bevor wir weiterarbeiten c:

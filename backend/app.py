@@ -79,6 +79,7 @@ def get_user_answers():
 def save_final_answers():
     data = request.json
     print('Final answers received in app.py:')
+    gpt_integration.calculate_playertype(data)
     print(data)
     # TODO add setting of "HasAnsweredQuiz" Field
     return jsonify(data)
@@ -154,17 +155,21 @@ def get_generated_quests(game_id):
 def generate_quests(game_id):
     print(f'Generating Quests for {game_id}')
     # TODO implement generation process trigger
-    return
+    # TODO replace hard coded values for both player_type and user_id
+    gpt_integration.generate_quests('Socializer', game_id, "Beater")
+    return 'Weeee'
 
 
 @app.route('/api/users/test/<int:game_id>/accept-quest/<int:quest_id>')
 def accept_quest(game_id, quest_id):
     print(f'Accepting Quest with {quest_id} for game {game_id}')
+    gpt_integration.process_selected_quest("Beater", game_id, quest_id, accepted=True)
     # TODO implement quest accepting behavior
-    return
+    #  that's me :) I;ll be implementing that C: (fehlt prob wieder ein subscribe)
+    return ''
 
 # TODO Alex: add functionality to reset Answers in user.json for testing and showcase
-
+# TODO we do have functionality to just remove quest form the selection too c:
 
 if __name__ == '__main__':
     app.run(debug=True)
