@@ -1,5 +1,5 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import { NgOptimizedImage } from "@angular/common";
+import {NgClass, NgOptimizedImage} from "@angular/common";
 import {QuizQuestionService} from "../quiz-question.service";
 import {QuizQuestionData} from "../quiz-question-data";
 import {Location} from "@angular/common";
@@ -8,7 +8,8 @@ import {Location} from "@angular/common";
   selector: 'app-quiz',
   standalone: true,
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    NgClass
   ],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss'
@@ -39,10 +40,10 @@ export class QuizComponent implements OnInit, OnChanges{
   private getData() : void {
     this.quizQuestionService.loadQuestions().subscribe(questions =>
     {
-      this.quizQuestions = questions
-      this.loadQuestionData(this.currentQuestionIndex)
+      this.quizQuestions = questions;
+      this.loadQuestionData(this.currentQuestionIndex);
+      this.quizLength = this.quizQuestions.length;
     });
-    this.quizQuestionService.getQuestionSetLength().subscribe(length => this.quizLength);
   }
 
 

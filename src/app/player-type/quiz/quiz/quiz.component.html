@@ -9,7 +9,7 @@
     </section>
 
     <div class = "progressbar">
-      <button class="progressbar-button" (click)="previousQuestion()" [hidden] ="currentQuestionIndex == 0">
+      <button class="progressbar-button" [ngClass]="{'hidden': currentQuestionIndex <= 0}" (click)="previousQuestion()">
         <img ngSrc="assets/images/icons/previous-icon.svg" width="40" height="60" alt="previous Question"/>
       </button>
 
@@ -26,16 +26,12 @@
           }
         }
       </div>
-      <button class="progressbar-button" (click)="nextQuestion()" [hidden]="currentQuestionIndex >= quizLength - 1">
+      <button class="progressbar-button" (click)="nextQuestion()" [ngClass]="{'hidden': currentQuestionIndex >= quizLength - 1}">
         <img ngSrc="assets/images/icons/next-icon.svg" width="40" height="60" alt="next Question"/>
       </button>
     </div>
 
-    <section class="result-view">
-      <p>A : {{result['+A']}}</p>
-      <p>E : {{result['+E']}}</p>
-      <p>S : {{result['+S']}}</p>
-      <p>K : {{result['+K']}}</p>
+    <section class="skip">
       <button (click)="skipQuiz()">Skip Rest</button>
     </section>
   </section>

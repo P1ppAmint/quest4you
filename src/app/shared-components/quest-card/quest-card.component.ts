@@ -45,6 +45,7 @@ import {QuestData} from "../quest-data/quest-data";
       }
     }
     .quest-container{
+      max-width: 80pt;
       display: flex;
       flex-direction: column;
       text-align: center;
@@ -53,6 +54,7 @@ import {QuestData} from "../quest-data/quest-data";
 
     p {
       font-size: 11pt;
+      text-wrap: wrap;
     }
   `
 })

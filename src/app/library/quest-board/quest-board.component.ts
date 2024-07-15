@@ -34,9 +34,11 @@ import { Router } from '@angular/router';
             </mat-dialog-actions>
           </section>
           <section class="quest-board-body">
-            @for (quest of generatedQuests; track quest.questId) {
-              <app-quest-card (onQuestClickEvent)="openQuestSelection($event)" [questData]="quest"></app-quest-card>
-            }
+            <section class="quest-board-body-wrapper board">
+              @for (quest of generatedQuests; track quest.questId) {
+                <app-quest-card (onQuestClickEvent)="openQuestSelection($event)" [questData]="quest"></app-quest-card>
+              }
+            </section>
           </section>
           <section class="quest-board-footer">
             <button (click)="regenerateQuest()">Regenerate</button>
@@ -54,8 +56,10 @@ import { Router } from '@angular/router';
             </mat-dialog-actions>
           </section>
           <section class="quest-board-body">
-            <p>Goals</p>
-            <p>{{ selectedQuest?.questDescription }}</p>
+            <section class="quest-board-body-wrapper quest">
+              <h2>Goals</h2>
+              <p>{{ selectedQuest?.questDescription }}</p>
+            </section>
           </section>
           <section class="quest-board-footer">
             <button (click)="closeQuestSelection()">Decline Quest</button>
@@ -76,8 +80,10 @@ import { Router } from '@angular/router';
   }
 
   .quest-board-header{
-    margin: 12px;
-    justify-content: center;
+    margin: 0;
+    padding: 12px;
+    justify-content: space-between;
+    align-items: center;
     background: #474747;
     display: flex;
     flex-direction: row;
@@ -87,7 +93,8 @@ import { Router } from '@angular/router';
   .quest-board-header h1{
     color: white;
     font-size: 32pt;
-    width: 100%;
+    margin: 0;
+    /*width: 100%;*/
   }
 
   .quest-board-header button{
@@ -96,26 +103,54 @@ import { Router } from '@angular/router';
 
   .quest-board-body{
     background: #D8D8D8;
-    width: 100%;
+    max-width: 100%;
+    padding: 12pt;
     min-height: 400pt;
   }
 
+  .quest-board-body-wrapper {
+    &.board {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-content: flex-start;
+    }
+
+    &.quest {
+      display: flex;
+      flex-direction: column;
+      align-content: flex-start;
+      justify-content: space-between;
+    }
+
+    h2 {
+      font-size: 16pt;
+    }
+
+    p {
+      font-size: 12pt;
+    }
+  }
+
+
+
   .quest-board-footer{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
     background: #474747;
     width: 100%;
     height: 80pt;
   }
 
   .quest-board-footer button{
-    top: 50%;
     background: #FFB951;
-    width: 80%;
     height: 46pt;
     color: #1F1F1F;
     border-radius: 8pt;
     border: none;
+    margin: 12pt;
+    flex-grow: 1;
   }
   `
 })

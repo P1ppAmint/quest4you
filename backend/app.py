@@ -38,7 +38,8 @@ def get_questions():
 def get_questions_length():
     with open('./data/bartles-questions.json') as file:
         questions_dataset = json.load(file)
-    return jsonify(len(questions_dataset))
+    length = len(questions_dataset)
+    return jsonify(length)
 
 
 @app.route('/api/users/test')

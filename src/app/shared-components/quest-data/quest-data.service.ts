@@ -30,9 +30,9 @@ export class QuestDataService {
   public getAcceptedQuests(gameId: number): Observable<QuestData[]> {
     const url = `${this.baseUrl}${gameId}/accepted-quests`;
     return this.http.get<any[]>(url).pipe(
-      tap(_ => console.log(`fetched generatedQuests id = ${gameId}`)),
+      tap(_ => console.log(`fetched acceptedQuests id = ${gameId}`)),
       map(data => data.map(item => this.transformToQuestData(item, QuestType.generated))),
-      catchError(this.handleError<QuestData[]>(`getGeneratedQuests id=${gameId}`))
+      catchError(this.handleError<QuestData[]>(`getAcceptedQuests id=${gameId}`))
     );
   }
 
