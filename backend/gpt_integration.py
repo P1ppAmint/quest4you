@@ -74,10 +74,18 @@ def calculate_playertype(answer_dict, user_id):
     # generate_quests(main_player_type, minecraft_df, tag_to_ptype_df)
 
 
-def generate_quests(player_type, game_id, user_id):
+def generate_quests(game_id, user_id):
 
     global is_completed
     is_completed = False
+
+    with open('data/users.json') as users_json_file:
+        users_json_data = json.load(users_json_file)
+
+    player_type = users_json_data[user_id]["PlayerType"]
+    player_type = max(player_type, key=player_type.get)
+
+    print('Generating achievements for player type: ', player_type)
 
     game_object_df = pd.read_csv(game_data_dict[game_id]['Object data path'])
     tag_df = pd.read_csv(game_data_dict[game_id]['Tag to ptype path'])
@@ -136,8 +144,7 @@ def generate_quests(player_type, game_id, user_id):
 
     # add achievements to user achievement json
 
-    with open('data/users.json') as users_json_file:
-        users_json_data = json.load(users_json_file)
+
 
     achievement_list = []
     #TODO modify gpt_json to be a list of achievements with the correct format! (should have no issues going on from there)
@@ -177,6 +184,9 @@ def process_selected_quest(user_id, game_id, quest_id, accepted=True):
 
     # obtain achievement from json file
     selected_quest = {}
+
+    print('Selected quest ID: ', quest_id)
+
     for curr_quest in users_json_data[user_id]["OwnedGames"][game_id]["GeneratedQuests"]:
         if curr_quest["QuestId"] == quest_id:
             selected_quest = curr_quest
@@ -189,7 +199,6 @@ def process_selected_quest(user_id, game_id, quest_id, accepted=True):
         curr_accepted_quests = list(users_json_data[user_id]["OwnedGames"][game_id]["AcceptedQuests"])
         # print('Currently accepted quests then: ', curr_accepted_quests)
         ### 2. append new quest to list
-        selected_quest["QuestId"] = selected_quest["QuestId"]
         curr_accepted_quests.append(selected_quest)
         # print('Currently accepted quests now: ', curr_accepted_quests)
         ### 3. overwrite accepted quest field in JSON
@@ -232,6 +241,7 @@ def prompt_chatgpt(message):
 
     # print(gpt_answer.content)
     return gpt_answer.content
+
 
 async def wait_gpt():
     while True:

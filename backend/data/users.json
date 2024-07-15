@@ -15,37 +15,49 @@
                         "QuestName": "Green Thumb",
                         "QuestDescription": "Harvest different crop items using appropriate tools",
                         "QuestStatus": "ongoing"
+                    },
+                    {
+                        "QuestId": 121,
+                        "QuestName": "Zombie Apocalypse",
+                        "QuestDescription": "Kill 5 zombies in the overworld",
+                        "QuestStatus": "ongoing"
+                    },
+                    {
+                        "QuestId": 125,
+                        "QuestName": "Master of the Nether",
+                        "QuestDescription": "Defeat a Blaze, Creeper, Skeleton, Witch, and Zombie in the Nether realm",
+                        "QuestStatus": "ongoing"
                     }
                 ],
                 "GeneratedQuests": [
                     {
-                        "QuestId": 75,
-                        "QuestName": "Master Crafter",
-                        "QuestDescription": "Craft every craftable block at least once",
+                        "QuestId": 125,
+                        "QuestName": "Master of the Nether",
+                        "QuestDescription": "Defeat a Blaze, Creeper, Skeleton, Witch, and Zombie in the Nether realm",
                         "QuestStatus": "ongoing"
                     },
                     {
-                        "QuestId": 76,
-                        "QuestName": "Green Thumb",
-                        "QuestDescription": "Harvest a total of 100 crop items",
+                        "QuestId": 126,
+                        "QuestName": "Ender Slayer",
+                        "QuestDescription": "Vanquish Enderman enemies in the End dimension",
                         "QuestStatus": "ongoing"
                     },
                     {
-                        "QuestId": 77,
-                        "QuestName": "True Friend",
-                        "QuestDescription": "Befriend a player and keep them as a friend for 24 in-game hours",
+                        "QuestId": 127,
+                        "QuestName": "Enchanted Arsenal",
+                        "QuestDescription": "Craft and enchant a Netherite Axe and defeat hostile mobs using it",
                         "QuestStatus": "ongoing"
                     },
                     {
-                        "QuestId": 78,
-                        "QuestName": "Feeding Frenzy",
-                        "QuestDescription": "Feed 50 different animals",
+                        "QuestId": 128,
+                        "QuestName": "Skull Collector",
+                        "QuestDescription": "Obtain Skeleton and Zombie heads as loot from their fallen enemies",
                         "QuestStatus": "ongoing"
                     },
                     {
-                        "QuestId": 79,
-                        "QuestName": "Invisible Savior",
-                        "QuestDescription": "Apply the Invisibility effect to another player right before they are hit by an enemy",
+                        "QuestId": 129,
+                        "QuestName": "Farmer's Harvest",
+                        "QuestDescription": "Harvest Carrots and Potatoes from planted crops in the world",
                         "QuestStatus": "ongoing"
                     }
                 ]
@@ -143,7 +155,7 @@
             "Killer": 30,
             "Socializer": 12
         },
-        "IdTracker": 80
+        "IdTracker": 130
     },
     "Cheater": {
         "OwnedGames": [
