@@ -81,7 +81,7 @@ def generate_quests(player_type, game_id, user_id):
     appropriate_tags = tag_df[tag_df[player_type] >= 0.3]
 
     appropriate_tags_list = appropriate_tags['Tag']
-    print(appropriate_tags_list)
+    # print('Appropriate tags: ', appropriate_tags_list)
 
     # random selection of tags (or even go as far as just include tags above 50%)
     filtered_df = game_object_df.loc[game_object_df['Objects'] == '']
@@ -98,7 +98,7 @@ def generate_quests(player_type, game_id, user_id):
     # extract relevant tags for prompt generation
     # note: maybe include 'rarity' tag at some point too?
     filtered_prompt_df = filtered_df[['Objects', 'Action', 'Occurance']]
-    print('Dataframe used for prompt:', filtered_prompt_df)
+    # print('Dataframe used for prompt:', filtered_prompt_df)
 
     # TODO trim down to 20 or so entries (or do we do that directly in the prompt then?)
 
@@ -122,7 +122,7 @@ def generate_quests(player_type, game_id, user_id):
 
     # format string and insert achievements into JSON
     stripped_gpt_answer = (gpt_answer.split("```")[1])[5:]
-    print(stripped_gpt_answer)
+    # print('Stripped GPT answer: ', stripped_gpt_answer)
 
     gpt_json = json.loads(stripped_gpt_answer)
 
@@ -140,22 +140,23 @@ def generate_quests(player_type, game_id, user_id):
     # (basically we just add quest ids so we can track them I think)
     for index in range(len(gpt_json)):
         achievement_list.append({
-            "QuestId": index,
+            "QuestId": users_json_data[user_id]["IdTracker"],
             "QuestName": gpt_json[index]["QuestName"],
             "QuestDescription": gpt_json[index]["QuestDescription"],
             "QuestStatus": "ongoing"
+
         })
+        users_json_data[user_id]["IdTracker"] += 1
 
     users_json_data[user_id]["OwnedGames"][game_id]['GeneratedQuests'] = achievement_list
-    print('Personal JSON data: ', users_json_data)
+    # print('Personal JSON data: ', users_json_data)
 
     with open('data/users.json', 'w') as writing_json_file:
         json.dump(users_json_data, writing_json_file, indent=4)
-        # print('le mao')
 
     with open('data/users.json') as file:
         data = json.load(file)
-        print('Updated users JSON: ', data)
+        # print('Updated users JSON: ', data)
 
     # Games loaded in successfully!!!
 
@@ -169,34 +170,35 @@ def process_selected_quest(user_id, game_id, quest_id, accepted=True):
         users_json_data = json.load(users_json_file)
 
     # obtain achievement from json file
-    selected_quest = users_json_data[user_id]["OwnedGames"][game_id]["GeneratedQuests"][quest_id]
+    selected_quest = {}
+    for curr_quest in users_json_data[user_id]["OwnedGames"][game_id]["GeneratedQuests"]:
+        if curr_quest["QuestId"] == quest_id:
+            selected_quest = curr_quest
 
     print('Selected achievement: ', selected_quest)
 
     if accepted:
         # insert in accepted quests
-        # 1. extract current accepted quests as list
+        ### 1. extract current accepted quests as list
         curr_accepted_quests = list(users_json_data[user_id]["OwnedGames"][game_id]["AcceptedQuests"])
-        print('Currently accepted quests then: ', curr_accepted_quests)
-        # 2. append new quest to list
-        selected_quest['QuestId'] = len(curr_accepted_quests)
+        # print('Currently accepted quests then: ', curr_accepted_quests)
+        ### 2. append new quest to list
+        selected_quest["QuestId"] = selected_quest["QuestId"]
         curr_accepted_quests.append(selected_quest)
-        print('Currently accepted quests now: ', curr_accepted_quests)
-        # overwrite accepted quest field in JSON
+        # print('Currently accepted quests now: ', curr_accepted_quests)
+        ### 3. overwrite accepted quest field in JSON
         users_json_data[user_id]["OwnedGames"][game_id]["AcceptedQuests"] = curr_accepted_quests
 
     # TODO make sure ids are distributed correctly!! (might impact our quest display, then see if we can automatically update our quest stuff)
 
     # delete from generated quests+
-    for quest in users_json_data[user_id]["OwnedGames"][game_id]["GeneratedQuests"]:
-        if quest["QuestId"] == quest_id:
+    for index in range(len(users_json_data[user_id]["OwnedGames"][game_id]["GeneratedQuests"])):
+        if users_json_data[user_id]["OwnedGames"][game_id]["GeneratedQuests"][index] == quest_id:
             del users_json_data[user_id]["OwnedGames"][game_id]["GeneratedQuests"][quest_id]
 
     # write changes back to user.json
     with open('data/users.json', 'w') as writing_json_file:
         json.dump(users_json_data, writing_json_file, indent=4)
-    # print('le mao')
-
 
 # think about joining functionality with decline quest option! (might have a bool that just triggers that we add the
 # achievement to the accepted quest list)

@@ -59,12 +59,12 @@ def has_answered_quiz():
     with open('./data/users.json') as file:
         quiz_answers = json.load(file)["Beater"]["QuizAnswers"]
 
-    print(quiz_answers)
+    # print(quiz_answers)
     result = False
-    print(result)
+    # print(result)
     for answer in quiz_answers.values():
         if answer:
-            print(f'This: {answer}')
+            # print(f'This: {answer}')
             result = True
 
     return jsonify(result)

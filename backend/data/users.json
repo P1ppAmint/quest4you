@@ -1,102 +1,170 @@
 {
-  "Beater": {
-    "OwnedGames": [
-      {
-        "Id": 0,
-        "AcceptedQuests": [],
-        "GeneratedQuests": [
-          {
-            "QuestId": 1,
-            "QuestName": "Archer",
-            "QuestDescription": "Kill a creeper with arrows",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 2,
-            "QuestName": "Benchmaking",
-            "QuestDescription": "Craft a workbench with four blocks of wooden planks",
-            "QuestStatus": "completed"
-          },
-          {
-            "QuestId": 3,
-            "QuestName": "Body Guard",
-            "QuestDescription": "Create an Iron Golem",
-            "QuestStatus": "ongoing"
-          },
-          {
-            "QuestId": 4,
-            "QuestName": "Camouflage",
-            "QuestDescription": "Kill a mob while wearing the same type of mob head",
-            "QuestStatus": "ongoing"
-          }
-        ]
-      },{
-        "Id": 1,
-        "AcceptedQuests": [],
-        "GeneratedQuests": []
-      },
-      {
-        "Id": 2,
-        "AcceptedQuests": [],
-        "GeneratedQuests": []
-      },
-      {
-        "Id": 3,
-        "AcceptedQuests": [],
-        "GeneratedQuests": []
-      },
-      {
-        "Id": 4,
-        "AcceptedQuests": [],
-        "GeneratedQuests": []
-      },
-      {
-        "Id": 5,
-        "AcceptedQuests": [],
-        "GeneratedQuests": []
-      },
-      {
-        "Id": 6,
-        "AcceptedQuests": [],
-        "GeneratedQuests": []
-      },
-      {
-        "Id": 7,
-        "AcceptedQuests": [],
-        "GeneratedQuests": []
-      },
-      {
-        "Id": 9,
-        "AcceptedQuests": [],
-        "GeneratedQuests": []
-      },
-      {
-        "Id": 11,
-        "AcceptedQuests": [],
-        "GeneratedQuests": []
-      }
-    ],
-    "QuizAnswers": {"0": "","1": "","2": "","3": "","4": "","5": "","6": "","7": "","8": "","9": "","10": "","11": "","12": "","13": "","14": "","15": "","16": "","17": "","18": "","19": "","20": "","21": "","22": "","23": "","24": "","25": "","26": "","27": "","28": "","29": "","30": "","31": "","32": "","33": "","34": "","35": "","36": "","37": "","38": ""},
-    "PlayerType": {
-      "Achiever":  10,
-      "Explorer":  20,
-      "Killer":  30,
-      "Socializer":  12}
-  },
-  "Cheater": {
-    "OwnedGames": [
-      {
-        "Id": 1,
-        "AcceptedQuests": [],
-        "GeneratedQuests": []
-      },
-      {
-        "Id": 2,
-        "AcceptedQuests": [],
-        "GeneratedQuests": []
-      }
-    ],
-    "QuizAnswers": [],
-    "PlayerType": {"Achiever":  0, "Explorer":  0, "Killer":  0, "Socializer":  0}
-  }
+    "Beater": {
+        "OwnedGames": [
+            {
+                "Id": 0,
+                "AcceptedQuests": [
+                    {
+                        "QuestId": 49,
+                        "QuestName": "Friendly Fire",
+                        "QuestDescription": "Kill 5 enemies with the help of a friend",
+                        "QuestStatus": "ongoing"
+                    },
+                    {
+                        "QuestId": 53,
+                        "QuestName": "Green Thumb",
+                        "QuestDescription": "Harvest different crop items using appropriate tools",
+                        "QuestStatus": "ongoing"
+                    }
+                ],
+                "GeneratedQuests": [
+                    {
+                        "QuestId": 75,
+                        "QuestName": "Master Crafter",
+                        "QuestDescription": "Craft every craftable block at least once",
+                        "QuestStatus": "ongoing"
+                    },
+                    {
+                        "QuestId": 76,
+                        "QuestName": "Green Thumb",
+                        "QuestDescription": "Harvest a total of 100 crop items",
+                        "QuestStatus": "ongoing"
+                    },
+                    {
+                        "QuestId": 77,
+                        "QuestName": "True Friend",
+                        "QuestDescription": "Befriend a player and keep them as a friend for 24 in-game hours",
+                        "QuestStatus": "ongoing"
+                    },
+                    {
+                        "QuestId": 78,
+                        "QuestName": "Feeding Frenzy",
+                        "QuestDescription": "Feed 50 different animals",
+                        "QuestStatus": "ongoing"
+                    },
+                    {
+                        "QuestId": 79,
+                        "QuestName": "Invisible Savior",
+                        "QuestDescription": "Apply the Invisibility effect to another player right before they are hit by an enemy",
+                        "QuestStatus": "ongoing"
+                    }
+                ]
+            },
+            {
+                "Id": 1,
+                "AcceptedQuests": [],
+                "GeneratedQuests": []
+            },
+            {
+                "Id": 2,
+                "AcceptedQuests": [],
+                "GeneratedQuests": []
+            },
+            {
+                "Id": 3,
+                "AcceptedQuests": [],
+                "GeneratedQuests": []
+            },
+            {
+                "Id": 4,
+                "AcceptedQuests": [],
+                "GeneratedQuests": []
+            },
+            {
+                "Id": 5,
+                "AcceptedQuests": [],
+                "GeneratedQuests": []
+            },
+            {
+                "Id": 6,
+                "AcceptedQuests": [],
+                "GeneratedQuests": []
+            },
+            {
+                "Id": 7,
+                "AcceptedQuests": [],
+                "GeneratedQuests": []
+            },
+            {
+                "Id": 9,
+                "AcceptedQuests": [],
+                "GeneratedQuests": []
+            },
+            {
+                "Id": 11,
+                "AcceptedQuests": [],
+                "GeneratedQuests": []
+            }
+        ],
+        "QuizAnswers": {
+            "0": "",
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": "",
+            "10": "",
+            "11": "",
+            "12": "",
+            "13": "",
+            "14": "",
+            "15": "",
+            "16": "",
+            "17": "",
+            "18": "",
+            "19": "",
+            "20": "",
+            "21": "",
+            "22": "",
+            "23": "",
+            "24": "",
+            "25": "",
+            "26": "",
+            "27": "",
+            "28": "",
+            "29": "",
+            "30": "",
+            "31": "",
+            "32": "",
+            "33": "",
+            "34": "",
+            "35": "",
+            "36": "",
+            "37": "",
+            "38": ""
+        },
+        "PlayerType": {
+            "Achiever": 10,
+            "Explorer": 20,
+            "Killer": 30,
+            "Socializer": 12
+        },
+        "IdTracker": 80
+    },
+    "Cheater": {
+        "OwnedGames": [
+            {
+                "Id": 1,
+                "AcceptedQuests": [],
+                "GeneratedQuests": []
+            },
+            {
+                "Id": 2,
+                "AcceptedQuests": [],
+                "GeneratedQuests": []
+            }
+        ],
+        "QuizAnswers": [],
+        "PlayerType": {
+            "Achiever": 0,
+            "Explorer": 0,
+            "Killer": 0,
+            "Socializer": 0
+        },
+        "IdTracker": 0
+    }
 }
