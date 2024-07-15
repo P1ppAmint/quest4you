@@ -79,7 +79,7 @@ def get_user_answers():
 def save_final_answers():
     data = request.json
     print('Final answers received in app.py:')
-    gpt_integration.calculate_playertype(data)
+    gpt_integration.calculate_playertype(data, "Beater")
     print(data)
     # TODO add setting of "HasAnsweredQuiz" Field
     return jsonify(data)

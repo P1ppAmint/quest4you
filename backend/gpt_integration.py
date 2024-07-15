@@ -36,7 +36,7 @@ minecraft_df = pd.read_csv('data/mc_object_data.csv')
 tag_to_ptype_df = pd.read_csv('data/tag_to_ptype.csv')
 
 
-def calculate_playertype(answer_dict):
+def calculate_playertype(answer_dict, user_id):
     global main_player_type
     for key in answer_dict:
         # print(f'Key: {key} + value: {answer_dict[key]}')
@@ -57,6 +57,18 @@ def calculate_playertype(answer_dict):
     main_player_type = max(player_type_profile, key=player_type_profile.get)
 
     print('Main player type: ', main_player_type)
+
+    # write player type + quiz answers to JSON file (for good measure :,) )
+    with open('data/users.json') as users_json_file:
+      users_json_data = json.load(users_json_file)
+
+    users_json_data[user_id]["QuizAnswers"] = answer_dict
+    users_json_data[user_id]["PlayerType"] = player_type_profile
+
+    with open('data/users.json', 'w') as writing_json_file:
+        json.dump(users_json_data, writing_json_file, indent=4)
+
+
 
     # generate_quests(main_player_type, minecraft_df, tag_to_ptype_df)
 
@@ -176,7 +188,9 @@ def process_selected_quest(user_id, game_id, quest_id, accepted=True):
     # TODO make sure ids are distributed correctly!! (might impact our quest display, then see if we can automatically update our quest stuff)
 
     # delete from generated quests+
-    del users_json_data[user_id]["OwnedGames"][game_id]["GeneratedQuests"][quest_id]
+    for quest in users_json_data[user_id]["OwnedGames"][game_id]["GeneratedQuests"]:
+        if quest["QuestId"] == quest_id:
+            del users_json_data[user_id]["OwnedGames"][game_id]["GeneratedQuests"][quest_id]
 
     # write changes back to user.json
     with open('data/users.json', 'w') as writing_json_file:
