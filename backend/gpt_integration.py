@@ -1,4 +1,5 @@
 import json
+import time
 
 from openai import OpenAI
 import pandas as pd
@@ -30,7 +31,7 @@ game_data_dict = {
   }
 }
 
-global main_player_type
+global main_player_type, is_completed
 
 minecraft_df = pd.read_csv('data/mc_object_data.csv')
 tag_to_ptype_df = pd.read_csv('data/tag_to_ptype.csv')
@@ -74,6 +75,9 @@ def calculate_playertype(answer_dict, user_id):
 
 
 def generate_quests(player_type, game_id, user_id):
+
+    global is_completed
+    is_completed = False
 
     game_object_df = pd.read_csv(game_data_dict[game_id]['Object data path'])
     tag_df = pd.read_csv(game_data_dict[game_id]['Tag to ptype path'])
@@ -161,6 +165,8 @@ def generate_quests(player_type, game_id, user_id):
     # Games loaded in successfully!!!
 
     # TODO ensure creation of achievements on frontend
+    # time.sleep(2)
+    is_completed = True
 
 
 # accepting function on 'Accept Quest' button
@@ -200,6 +206,8 @@ def process_selected_quest(user_id, game_id, quest_id, accepted=True):
     with open('data/users.json', 'w') as writing_json_file:
         json.dump(users_json_data, writing_json_file, indent=4)
 
+
+
 # think about joining functionality with decline quest option! (might have a bool that just triggers that we add the
 # achievement to the accepted quest list)
 
@@ -208,6 +216,8 @@ def prompt_chatgpt(message):
     client = OpenAI()
 
     message_prompt = message
+
+    global is_completed
 
     # should be the last part of the filtering process
     completion = client.chat.completions.create(
@@ -222,6 +232,11 @@ def prompt_chatgpt(message):
 
     # print(gpt_answer.content)
     return gpt_answer.content
+
+async def wait_gpt():
+    while True:
+        if is_completed:
+            return True
 
 # def printData():
 #   print('Received answers in gpt integration script: \n' + str(questions_data))

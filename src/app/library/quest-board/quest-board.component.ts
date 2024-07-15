@@ -144,6 +144,7 @@ export class QuestBoardComponent implements OnInit, OnChanges{
   }
 
   openQuestSelection(quest : QuestData){
+
     this.questDataService.generateQuests(this.data.gameId);
     this.activeScreen = 1;
     this.selectedQuest = quest;
@@ -167,6 +168,7 @@ export class QuestBoardComponent implements OnInit, OnChanges{
   regenerateQuest() {
     this.questDataService.generateQuests(this.data.gameId);
     this.reloadComponent(true)
+    this.getData()
   }
 
   // this is the function that reloads the component, yse on change and possibly on other function calls as well

@@ -3,6 +3,7 @@ import json
 from flask_cors import CORS
 import requests
 import gpt_integration
+import time
 
 app = Flask(__name__)
 
@@ -138,14 +139,15 @@ def get_accepted_quests(game_id):
 
 
 @app.route('/api/users/test/<int:game_id>/generated-quests')
-def get_generated_quests(game_id):
+async def get_generated_quests(game_id):
+    await gpt_integration.wait_gpt()
     with open('./data/users.json') as file:
         data = json.load(file)
     if game_id < 0 or game_id >= len(data):
         return jsonify({"error": "Game not found"}), 404
     for game in data["Beater"]["OwnedGames"]:
         if game["Id"] == game_id:
-            print(f'GeneratedQuests: {game["GeneratedQuests"]}')
+            # print(f'GeneratedQuests: {game["GeneratedQuests"]}')
             return jsonify(game["GeneratedQuests"])
 
     return jsonify({"error": "Game not found"}), 404
