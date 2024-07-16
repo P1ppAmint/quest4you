@@ -143,6 +143,8 @@ def generate_quests(game_id, user_id):
     print('First quest: ', gpt_json[0])
 
     # add achievements to user achievement json
+    with open('data/users.json') as users_json_file:
+        users_json_data = json.load(users_json_file)
 
 
 

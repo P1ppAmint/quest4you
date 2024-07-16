@@ -158,7 +158,7 @@ def generate_quests(game_id):
     print(f'Generating Quests for {game_id}')
     # TODO implement generation process trigger
     # TODO replace hard coded values for both player_type and user_id
-    gpt_integration.generate_quests('Socializer', game_id, "Beater")
+    gpt_integration.generate_quests(game_id, "Beater")
     return jsonify('Weeee')
 
 
