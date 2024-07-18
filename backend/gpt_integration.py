@@ -1,11 +1,7 @@
 import json
-import time
 
 from openai import OpenAI
 import pandas as pd
-
-
-## filtering of words for prompt
 
 questions_data = {}
 
@@ -70,10 +66,6 @@ def calculate_playertype(answer_dict, user_id):
         json.dump(users_json_data, writing_json_file, indent=4)
 
 
-
-    # generate_quests(main_player_type, minecraft_df, tag_to_ptype_df)
-
-
 def generate_quests(game_id, user_id):
 
     global is_completed
@@ -112,13 +104,7 @@ def generate_quests(game_id, user_id):
     filtered_prompt_df = filtered_df[['Objects', 'Action', 'Occurance']]
     # print('Dataframe used for prompt:', filtered_prompt_df)
 
-    # TODO trim down to 20 or so entries (or do we do that directly in the prompt then?)
-
-    # TODO create prompt! (using the filtered filtered dataframe we got for this specific player type)
-    # + think about feeding the verbs down to the prompt in a list as well! (try just extracting the matching tags as a list
-    # or somehow filter the actual actions out of the extracted tags by playertype in any other way)
-
-    # TODO make sure the game can be read from the backend somehow to be able to have more than one game
+    # TODO make sure the game can be read from the backend to be able to have more than one game
     current_game = 'Minecraft'
 
     message_prompt = (f'With the attached dataframe, create 5 interesting achievement for the game {current_game} using '
@@ -149,8 +135,6 @@ def generate_quests(game_id, user_id):
 
 
     achievement_list = []
-    #TODO modify gpt_json to be a list of achievements with the correct format! (should have no issues going on from there)
-    # (basically we just add quest ids so we can track them I think)
     for index in range(len(gpt_json)):
         achievement_list.append({
             "QuestId": users_json_data[user_id]["IdTracker"],
@@ -171,10 +155,6 @@ def generate_quests(game_id, user_id):
         data = json.load(file)
         # print('Updated users JSON: ', data)
 
-    # Games loaded in successfully!!!
-
-    # TODO ensure creation of achievements on frontend
-    # time.sleep(2)
     is_completed = True
 
 
@@ -250,26 +230,3 @@ async def wait_gpt():
         if is_completed:
             return True
 
-# def printData():
-#   print('Received answers in gpt integration script: \n' + str(questions_data))
-
-## prompt generation
-
-
-### Other notes
-
-# gibts andere achievements wie easter eggs achievements (bzw wie können wir die prompts so gestalten/designen, dass sie interessant sind)
-# chatgpt api rsufinden und schauen, wie man die prompts übergibt? (schauen in welcher FOrm man das übertgitb + schauen, wie man daraus ein achievement generiert
-# z.B. liste erstellen, filtern und dann an chatgpt senden)
-
-# Können auch versuchen eher elaboriertere achievements als die schablone zu kreieren
-# kann schauen, was passiert wenn man random stuff reinpackt
-# kann tags hinzufügen zu dem stuff
-
-# stuff to do
-# improve prompt
-# sobald frontend questboard da -> verschiebung generated -> accepted implementieren
-# PLACEHOLDER ENTFERNEN (z.B. sicherstellen, dass die answers aus dem playertypes test dann auch wirklich in die JSON
-# geschrieben wird! (zum Vergleich einfach den JSON modifying process von den achievements nehmen C:
-# also open, modify, write cc: ))
-# pipps stuff pullen und schauen, dass alles funktioniert bevor wir weiterarbeiten c:

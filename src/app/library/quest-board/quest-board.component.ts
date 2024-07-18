@@ -206,8 +206,6 @@ export class QuestBoardComponent implements OnInit, OnChanges{
     this.getData()
   }
 
-  // this is the function that reloads the component, yse on change and possibly on other function calls as well
-  // currently reloads whole site, need to figure out how to reload only the popup window (if that's even possible)
   reloadComponent(self:boolean,urlToNavigateTo ?:string){
     //skipLocationChange:true means dont update the url to / when navigating
     console.log("Current route I am on:",this.router.url);

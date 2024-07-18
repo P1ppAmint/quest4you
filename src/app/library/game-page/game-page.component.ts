@@ -41,9 +41,7 @@ export class GamePageComponent implements OnInit, OnChanges{
     this.gameId = gameId;
     this.gameDataService.getGameData(gameId).subscribe(gameData => this.gameData = gameData);
     this.questDataService.getVanillaQuests(gameId).subscribe(vanillaQuests => this.vanillaQuests = vanillaQuests)
-    // this.questDataService.getGeneratedQuests(gameId).subscribe(acceptedQuests => this.acceptedQuests = acceptedQuests)
     this.questDataService.getAcceptedQuests(gameId).subscribe(acceptedQuests => this.acceptedQuests = acceptedQuests)
-    // TODO revert to acceptedQuest
   }
 
   // implement reload functionality here, that stuff gets updated on load :]

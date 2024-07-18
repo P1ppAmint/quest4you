@@ -156,8 +156,6 @@ async def get_generated_quests(game_id):
 @app.route('/api/users/test/<int:game_id>/generate-quests')
 def generate_quests(game_id):
     print(f'Generating Quests for {game_id}')
-    # TODO implement generation process trigger
-    # TODO replace hard coded values for both player_type and user_id
     gpt_integration.generate_quests(game_id, "Beater")
     return jsonify('Weeee')
 
@@ -166,12 +164,8 @@ def generate_quests(game_id):
 def accept_quest(game_id, quest_id):
     print(f'Accepting Quest with {quest_id} for game {game_id}')
     gpt_integration.process_selected_quest("Beater", game_id, quest_id, accepted=True)
-    # TODO implement quest accepting behavior
-    #  that's me :) I;ll be implementing that C: (fehlt prob wieder ein subscribe)
-    return jsonify('')
 
-# TODO Alex: add functionality to reset Answers in user.json for testing and showcase
-# TODO we do have functionality to just remove quest form the selection too c:
+    return jsonify('')
 
 if __name__ == '__main__':
     app.run(debug=True)
