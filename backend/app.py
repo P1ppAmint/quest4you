@@ -157,7 +157,7 @@ async def get_generated_quests(game_id):
 def generate_quests(game_id):
     print(f'Generating Quests for {game_id}')
     gpt_integration.generate_quests(game_id, "Beater")
-    return jsonify('Weeee')
+    return jsonify('Quests generated')
 
 
 @app.route('/api/users/test/<int:game_id>/accept-quest/<int:quest_id>')
